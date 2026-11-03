@@ -1,1 +1,286 @@
-{"status":"not run yet"}
+{
+ "run_at_utc": "2026-11-03T04:58:27",
+ "checks": [
+  {
+   "status": 200,
+   "bytes": 1907602,
+   "pages": {
+    "DYNF": "/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf",
+    "BAI": "/us/products/339081/ishares-a-i-innovation-and-tech-active-etf"
+   },
+   "sample": "{\"239619\":{\"aladdinAssetClass\":\"Equity\",\"aladdinAssetClassCode\":\"43511\",\"aladdinCountry\":\"China\",\"aladdinCountryCode\":\"43544\",\"aladdinMarketType\":\"Emerging\",\"aladdinMarketTypeCode\":\"43524\",\"aladdinRegion\":\"Asia Pacific\",\"aladdinRegionCode\":\"43526\",\"aladdinSubAssetClass\":\"Large/Mid Cap\",\"aladdinSubAssetClassCode\":\"43581\",\"cleanDuration\":null,\"cusip\":\"46429B671\",\"dailyPerformanceYearToDate\":{\"d\":\"-1",
+   "name": "ishares_screener",
+   "ok": true
+  },
+  {
+   "url": "https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/1467271812596.ajax?fileType=csv&fileName=BAI_holdings&dataType=fund",
+   "final": "https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/1467271812596.ajax?fileType=csv&fileName=BAI_holdings&dataType=fund",
+   "status": 200,
+   "ctype": "text/csv;charset=UTF-8",
+   "bytes": 1431255,
+   "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c056e6d7aee1fad.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-b3c0c3efa159aa10402ba68313a8bec7.css\" as=\"style\" />\n<script nonce=\"CLbZTCvmC6foPpKHIOes8A==\">\n//<![CDATA[\nvar vice= { config: { viceAccountId: 'blackrock', viceSiteId: 'isharesprod', viceZoneId: ",
+   "name": "ishares_BAI",
+   "ok": false
+  },
+  {
+   "url": "https://www.ishares.com/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf/1467271812596.ajax?fileType=csv&fileName=DYNF_holdings&dataType=fund",
+   "final": "https://www.ishares.com/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf/1467271812596.ajax?fileType=csv&fileName=DYNF_holdings&dataType=fund",
+   "status": 200,
+   "ctype": "text/csv;charset=UTF-8",
+   "bytes": 1486264,
+   "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c056e6d7aee1fad.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-b3c0c3efa159aa10402ba68313a8bec7.css\" as=\"style\" />\n<script nonce=\"Wtqbv+zK2yErhXMDFS1J7w==\">\n//<![CDATA[\nvar vice= { config: { viceAccountId: 'blackrock', viceSiteId: 'isharesprod', viceZoneId: ",
+   "name": "ishares_DYNF",
+   "ok": false
+  },
+  {
+   "url": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
+   "final": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
+   "status": 200,
+   "ctype": "application/octet-stream",
+   "bytes": 6263,
+   "sample": "<binary 6263 bytes, application/octet-stream>",
+   "name": "ark_ARKK",
+   "ok": false
+  },
+  {
+   "url": "https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
+   "final": "https://www.ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
+   "status": 404,
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 121541,
+   "sample": "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    \n\n\n<link rel=\"canonical\" href=\"\">\n\n<title>Error - ARK Funds</title>\n<meta name=\"description\" content=\"\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"robots\" content=\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\">\n<meta name=\"header-hide\" content=\"False\">\n<meta property=\"og:locale\" content=\"en_US\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Error - ARK Funds\">\n<meta property=\"og:description\" content=\"\">\n<meta property=\"og:url\" content=\"\">\n<meta property=\"og:site_name\" content=\"Ark Invest\">\n<meta property=\"og:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"disclosure\" content=\"funds\">\n<meta name=\"facebook-domain-verification\" content=\"i7k3ss5pgqu94a55m0hyz4g99zu0cx\">\n<meta property=\"fb:app_id\" content=\"1116394810970368\">\n\n\n\n<style>\n\t.m",
+   "name": "ark_ARKK",
+   "ok": false
+  },
+  {
+   "url": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
+   "final": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
+   "status": 200,
+   "ctype": "application/octet-stream",
+   "bytes": 5919,
+   "sample": "<binary 5919 bytes, application/octet-stream>",
+   "name": "ark_ARKW",
+   "ok": false
+  },
+  {
+   "url": "https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
+   "final": "https://www.ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
+   "status": 404,
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 121541,
+   "sample": "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    \n\n\n<link rel=\"canonical\" href=\"\">\n\n<title>Error - ARK Funds</title>\n<meta name=\"description\" content=\"\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"robots\" content=\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\">\n<meta name=\"header-hide\" content=\"False\">\n<meta property=\"og:locale\" content=\"en_US\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Error - ARK Funds\">\n<meta property=\"og:description\" content=\"\">\n<meta property=\"og:url\" content=\"\">\n<meta property=\"og:site_name\" content=\"Ark Invest\">\n<meta property=\"og:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"disclosure\" content=\"funds\">\n<meta name=\"facebook-domain-verification\" content=\"i7k3ss5pgqu94a55m0hyz4g99zu0cx\">\n<meta property=\"fb:app_id\" content=\"1116394810970368\">\n\n\n\n<style>\n\t.m",
+   "name": "ark_ARKW",
+   "ok": false
+  },
+  {
+   "url": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+   "final": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+   "status": 200,
+   "ctype": "application/octet-stream",
+   "bytes": 5363,
+   "sample": "<binary 5363 bytes, application/octet-stream>",
+   "name": "ark_ARKQ",
+   "ok": false
+  },
+  {
+   "url": "https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+   "final": "https://www.ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
+   "status": 404,
+   "ctype": "text/html; charset=utf-8",
+   "bytes": 121541,
+   "sample": "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    \n\n\n<link rel=\"canonical\" href=\"\">\n\n<title>Error - ARK Funds</title>\n<meta name=\"description\" content=\"\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"robots\" content=\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\">\n<meta name=\"header-hide\" content=\"False\">\n<meta property=\"og:locale\" content=\"en_US\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Error - ARK Funds\">\n<meta property=\"og:description\" content=\"\">\n<meta property=\"og:url\" content=\"\">\n<meta property=\"og:site_name\" content=\"Ark Invest\">\n<meta property=\"og:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"disclosure\" content=\"funds\">\n<meta name=\"facebook-domain-verification\" content=\"i7k3ss5pgqu94a55m0hyz4g99zu0cx\">\n<meta property=\"fb:app_id\" content=\"1116394810970368\">\n\n\n\n<style>\n\t.m",
+   "name": "ark_ARKQ",
+   "ok": false
+  },
+  {
+   "url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46641Q332&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
+   "final": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46641Q332&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
+   "status": 200,
+   "ctype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
+   "bytes": 26871,
+   "sample": "<binary 26871 bytes, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8>",
+   "name": "jpm_JEPI",
+   "ok": true
+  },
+  {
+   "url": "https://www.roundhillinvestments.com/etf/chat/",
+   "final": "https://www.roundhillinvestments.com/etf/chat/",
+   "status": 200,
+   "bytes": 122969,
+   "holding_links": [],
+   "files": [],
+   "sample": "holdings\" id=\"CHAT\"> <!-- Google Tag Manager (noscript) --> <noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-PGWH6BM\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> <div data-sticky-container> <div class=\"title-bar baretfs\" data-hide-for=\"large\" data-responsive-toggle=\"mainNavigation\" style=\"display: none;\"> <div class=\"title-bar-left\"> <a href=\"/\" aria-label=\"Homepage\"><img alt=\"Roundhill Logo\" id=\"site-logo\" src=\"../../assets/img/roundhill-round-logo-black.svg\" sty",
+   "name": "page_CHAT",
+   "ok": true
+  },
+  {
+   "url": "https://www.capitalgroup.com/individual/investments/fund/cggr",
+   "final": "https://www.capitalgroup.com/individual/investments/fund/cggr",
+   "status": 404,
+   "bytes": 0,
+   "holding_links": [],
+   "files": [],
+   "sample": "",
+   "name": "page_CGGR",
+   "ok": false
+  },
+  {
+   "url": "https://www.capitalgroup.com/advisor/investments/etf/cggr",
+   "final": "https://www.capitalgroup.com/advisor/investments/etf/cggr",
+   "status": 404,
+   "bytes": 0,
+   "holding_links": [],
+   "files": [],
+   "sample": "",
+   "name": "page_CGGR",
+   "ok": false
+  },
+  {
+   "url": "https://www.capitalgroup.com/individual/investments/fund/cgdv",
+   "final": "https://www.capitalgroup.com/individual/investments/fund/cgdv",
+   "status": 404,
+   "bytes": 0,
+   "holding_links": [],
+   "files": [],
+   "sample": "",
+   "name": "page_CGDV",
+   "ok": false
+  },
+  {
+   "url": "https://www.fidelity.com/etfs/fbcg",
+   "final": "https://www.fidelity.com/etfs/fbcg",
+   "status": 400,
+   "bytes": 0,
+   "holding_links": [],
+   "files": [],
+   "sample": "",
+   "name": "page_FBCG",
+   "ok": false
+  },
+  {
+   "url": "https://fundresearch.fidelity.com/mutual-funds/summary/316092311",
+   "final": "https://fundresearch.fidelity.com/mutual-funds/summary/316092311",
+   "status": 200,
+   "bytes": 31523,
+   "holding_links": [],
+   "files": [],
+   "sample": "holdingsUrl\":\"https://eresearch.fidelity.com/eresearch/evaluate/snapshot.jhtml?symbols={{SYMBOL}}\",\"fundPicksUrl\":\"https://fundresearch.fidelity.com/fund-screener/picks\",\"exchangeUrl\":\"https://digital.fidelity.com/ftgw/digital/trade-mutualfund?ORDER_TYPE=M&SYMBOL={{SYMBOL}}&ORDER_ACTION=EF\",\"fidelityFundsUrl\":\"https://fundresearch.fidelity.com/fund-screener/results/table/overview/averageAnnualReturnsYear3/desc/1?fidelityFundOnly=F&indexFundOnly=Index&order=fidelityFundOnly,indexFundOnly\",\"factSheetUrl\":\"https://fundresearch.fidelity.com/{{URL_POINTS_TO}}/fundfactpdf/{{INVESTMENT_ID}}?appcode={",
+   "name": "page_FBCG",
+   "ok": true
+  },
+  {
+   "url": "https://www.troweprice.com/personal-investing/tools/fund-research/TCHP",
+   "final": "https://www.troweprice.com/personal-investing/tools/fund-research/TCHP",
+   "status": 200,
+   "bytes": 7857,
+   "holding_links": [],
+   "files": [],
+   "sample": "",
+   "name": "page_TCHP",
+   "ok": true
+  },
+  {
+   "url": "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/blue-chip-growth-etf.html",
+   "final": "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/blue-chip-growth-etf.html",
+   "status": 200,
+   "bytes": 299954,
+   "holding_links": [
+    "https://www.troweprice.com/literature/public/country/us/language/en/literature-type/portfolio-holdings/sub-type/quarterly?productCode=BCX&amp;currency=USD&quot;,&quot;isExternalURL&quot;:false}],&quot;keyFacts&quot;:[{&quot;title&quot;:&quot;Net",
+    "https://www.troweprice.com/literature/public/country/us/language/en/literature-type/portfolio-holdings/sub-type/quarterly?productCode=BCX&amp;currency=USD&quot;,&quot;locked&quot;:false,&quot;isExternalURL&quot;:false}],&quot;metadata&quot;:null}}",
+    "https://www.troweprice.com/literature/public/country/us/language/en/literature-type/portfolio-holdings/sub-type/quarterly?productCode=BCX&amp;currency=USD&quot;,&quot;locked&quot;:false,&quot;isExternalURL&quot;:false}]}"
+   ],
+   "files": [],
+   "sample": "holdings-excel-download-etf\":false,\"market-data-previous-day-trading-volume\":true,\"cit-overview-table\":false,\"if-performance-table\":true,\"if-portfolio\":false,\"enable-cit-header\":false,\"emea-etf-holdings-market-ticker\":false}') }; </script> <script> window.metricsData = { page: { lob: \"INST\", site: \"FAI\", } }; </script> <script src=\"//assets.adobedtm.com/b6157d8f598e/a4667a2548dc/launch-bf819d07311a.min.js\"></sc",
+   "name": "page_TCHP",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/bai/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_BAI",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/chat/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_CHAT",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/arkk/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_ARKK",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/arkw/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_ARKW",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/arkq/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_ARKQ",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/cggr/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_CGGR",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/fbcg/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_FBCG",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/tchp/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_TCHP",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/cgdv/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_CGDV",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/dynf/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_DYNF",
+   "ok": true
+  },
+  {
+   "url": "https://stockanalysis.com/etf/jepi/holdings/",
+   "status": 200,
+   "rows": 26,
+   "asof": "",
+   "name": "fallback_JEPI",
+   "ok": true
+  }
+ ]
+}
