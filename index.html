@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>US ACTIVE ETF — 미국 대표 액티브 ETF 순위·매일 매매 추적</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B2D5B'/><path d='M18 70 L40 46 L56 60 L82 30' fill='none' stroke='%23F37321' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#F37321;--orange-soft:#FDE6D5;--orange-ink:#A3460B;--navy:#0B2D5B;--navy-soft:#DCE5F2;--ink:#1B2230;--sub:#5B6475;
+  --line:#E3E6EB;--band:#F4F6F9;--green:#1F7A5A;--red:#C2410C;--font:"Nanum Gothic","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.55;word-break:keep-all;-webkit-text-size-adjust:100%}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+a{color:var(--navy)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 22px}
+header{background:var(--navy);color:#fff;padding:24px 0 20px;border-bottom:4px solid var(--orange)}
+header h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.3px}
+header h1 .en{font-size:17px;font-weight:700;color:var(--orange);margin-left:8px;vertical-align:5px}
+header p{margin:6px 0 0;color:#C9D6EA;font-size:17.5px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:10px;font-size:14.5px;color:#C9D6EA}
+.meta b{color:#fff}
+.lag{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--orange);background:#FFF6EF;border-radius:10px;padding:12px 16px;margin:18px 0 12px;font-size:16px}
+.lag .ic{flex:none;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:2px}
+.lag b{color:var(--orange-ink)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--navy);margin-top:6px}
+.tab{border:1.5px solid var(--line);border-bottom:0;background:var(--band);padding:12px 22px;border-radius:10px 10px 0 0;font-weight:800;cursor:pointer;font-size:18px;color:var(--sub)}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:14px 0 10px}
+.bar .lbl{font-size:16px;font-weight:800;color:var(--navy);min-width:58px}
+.chip{border:1.5px solid #C7CDD6;background:#fff;font-weight:700;font-size:16px;padding:9px 17px;border-radius:10px;box-shadow:0 2px 0 #DDE2E9;cursor:pointer}
+.chip:hover{border-color:var(--navy)}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 2px 0 #051A38}
+.chip.o[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);box-shadow:0 2px 0 #C95A12}
+.search{border:1.5px solid #C7CDD6;border-radius:10px;padding:9px 12px;font-size:16px;width:280px;max-width:100%}
+.note{font-size:13.5px;color:var(--sub);margin:6px 0}
+.empty{padding:28px;text-align:center;color:var(--sub);border:1px dashed var(--line);border-radius:10px}
+.tbl-wrap{overflow-x:auto;border-top:2px solid var(--navy);margin-top:6px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:9px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;font-size:15px;vertical-align:top}
+th{background:var(--band);color:var(--sub);font-size:13.5px}
+th.l,td.l{text-align:left}
+td.nm{white-space:normal;min-width:150px;max-width:320px}
+tr.click{cursor:pointer}
+tr.click:hover td{background:#FAFBFD}
+tr.on td{background:#FFF6EF}
+.tk{font-weight:800}
+.sm{display:block;font-size:12.5px;color:var(--sub);font-weight:400}
+.pos{color:var(--red);font-weight:700}.neg{color:var(--navy);font-weight:700}
+.grp{display:inline-block;font-size:12px;font-weight:800;border-radius:5px;padding:2px 7px}
+.g-ai{background:#FBE6E6;color:#9B2C2C}.g-growth{background:var(--orange-soft);color:var(--orange-ink)}.g-value{background:#E6F2EC;color:var(--green)}.g-income{background:var(--navy-soft);color:var(--navy)}
+.bdg{display:inline-block;font-size:12px;font-weight:800;border-radius:4px;padding:1px 7px}
+.b-new{background:#FFE8D6;color:#C2410C}.b-buy{background:#FEF3C7;color:#92400E}.b-sell{background:var(--navy-soft);color:var(--navy)}.b-exit{background:#E5E7EB;color:#374151}
+/* trades */
+.day{margin:20px 0 6px;font-weight:800;color:var(--navy);font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.tblock{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}
+.tblock h3{margin:0 0 6px;font-size:17px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.tblock h3 a{cursor:pointer;text-decoration:none}
+.tlist{display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:15px}
+.tlist .k{font-weight:800}
+.it{display:inline-block;margin:2px 10px 2px 0;white-space:nowrap}
+.it small{color:var(--sub)}
+.agg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.agg .box{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.agg h4{margin:0 0 6px;font-size:16px}
+.pill{display:inline-block;font-size:12.5px;border-radius:999px;padding:1px 8px;margin:1px 2px;border:1px solid var(--line);background:#fff}
+.detail{border:2px solid var(--navy);border-radius:12px;padding:16px 18px;margin:16px 0}
+.detail h2{margin:0;font-size:24px;color:var(--navy)}
+.kv{display:flex;flex-wrap:wrap;gap:6px 20px;margin:8px 0 12px;font-size:14.5px;color:var(--sub)}
+.kv b{color:var(--ink)}
+.sub-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 4px}
+.heat td.c{font-weight:800}
+.wbar{display:inline-block;height:8px;background:var(--orange);border-radius:2px;vertical-align:middle;margin-left:6px}
+footer{margin-top:40px;padding:20px 0 34px;background:var(--band);font-size:13px;color:var(--sub)}
+@media (max-width:760px){
+  .wrap{padding:0 14px}
+  header h1{font-size:27px}
+  header h1 .en{display:block;margin:2px 0 0;font-size:14px}
+  header p{font-size:15px}
+  .tab{padding:9px 12px;font-size:15.5px}
+  .chip{font-size:15px;padding:8px 13px}
+  .tlist{grid-template-columns:1fr}
+  .agg{grid-template-columns:1fr}
+  .search{width:100%}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>US ACTIVE ETF <span class="en">(미국 대표 액티브 ETF 매매 추적)</span></h1>
+  <p>블랙록·JP모건·캐피털그룹·피델리티·T. 로우 프라이스·ARK 등 신뢰받는 운용사의 액티브 ETF — 매니저가 오늘 사고판 종목</p>
+  <div class="meta"><span>데이터 갱신 <b id="gen">—</b></span><span>출처 <b>각 운용사 일일 보유 파일</b> · <b>Zacks</b> · 시세 <b>Yahoo Finance</b></span></div>
+</div></header>
+<main class="wrap" id="app"><div class="empty" style="margin-top:30px">데이터를 불러오는 중입니다.</div></main>
+<footer><div class="wrap">투자 참고용이며 투자 권유가 아닙니다. 매수·매도는 하루 사이 보유 주식 수 변화로 추정한 것으로, ETF 전체 설정·환매에 따른 일괄 변화는 제외했습니다. 수익률은 분배금을 제외한 가격 기준입니다.</div></footer>
+<script>
+const GRP = {ai:"AI·기술", growth:"성장주", value:"배당·가치·팩터", income:"인컴"};
+const ISS = {ishares:"블랙록 (iShares)", roundhill:"라운드힐", ark:"ARK", capgroup:"캐피털그룹", fidelity:"피델리티", troweprice:"T. 로우 프라이스", jpm:"JP모건"};
+const SRC = {ark:"운용사 일일 CSV", jpm:"운용사 일일 엑셀", capgroup:"운용사 일일 엑셀", zacks:"Zacks 보유 목록"};
+const KIND = {new:["신규 편입","b-new"], exit:["전량 매도","b-exit"], buy:["매수","b-buy"], sell:["매도","b-sell"]};
+let D, E = {}, st = {tab:"trades", days:7, sort:"aum", open:null, sub:"hold", q:"", grp:"all"};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const usd = v => v == null ? "—" : v >= 1e9 ? "$" + (v/1e9).toFixed(2) + "B" : v >= 1e6 ? "$" + (v/1e6).toFixed(1) + "M" : "$" + Math.round(v).toLocaleString();
+const pc = (v, d=1) => v == null ? "—" : `<span class="${v > 0 ? "pos" : v < 0 ? "neg" : ""}">${v > 0 ? "+" : ""}${(v*100).toFixed(d)}%</span>`;
+const w = v => v == null ? "—" : (+v).toFixed(2) + "%";
+const n0 = v => v == null ? "—" : Math.round(v).toLocaleString("ko-KR");
+const gb = g => `<span class="grp g-${g}">${GRP[g]}</span>`;
+const lastTrade = e => e.trades[0];
+
+fetch("data/etfs.json?v=" + Date.now()).then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(js => { D = js; D.etfs.forEach(e => E[e.ticker] = e); render(); })
+  .catch(e => { $("#app").innerHTML = `<div class="empty" style="margin-top:30px">데이터 파일을 읽지 못했습니다: ${esc(e.message)}</div>`; });
+
+function render(){
+  if (D.status !== "ok"){ $("#app").innerHTML = '<div class="empty" style="margin-top:30px">첫 데이터 수집 전입니다.</div>'; return; }
+  $("#gen").textContent = new Date(D.generated_at).toLocaleString("ko-KR",{timeZone:"Asia/Seoul",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}) + " (KST)";
+  $("#app").innerHTML = `
+    <div class="lag" role="note"><span class="ic">!</span><div><b>보유 내역은 전 거래일 장 마감 기준</b>으로 운용사가 다음 날 공개합니다. 매수·매도는 두 시점의 보유 주식 수를 비교해 추정하며, ETF 자금 유출입으로 모든 종목이 함께 늘거나 준 부분은 제외합니다 (변화 ${Math.round(D.trade_min*100)}% 이상만 표시).</div></div>
+    <div class="tabs" role="tablist">${[["trades","① 오늘의 매매"],["rank","② ETF 순위·포트폴리오"],["ai","③ AI ETF 비교"],["search","④ 종목 검색"]].map(([k,t]) => `<button class="tab" role="tab" aria-selected="${st.tab===k}" data-t="${k}">${t}</button>`).join("")}</div>
+    <div id="pane"></div>`;
+  document.querySelectorAll(".tab").forEach(b => b.onclick = () => { st.tab = b.dataset.t; render(); });
+  ({trades:renderTrades, rank:renderRank, ai:renderAI, search:renderSearch})[st.tab]();
+}
+function grpBar(fn){
+  return `<div class="bar"><span class="lbl">그룹</span>${[["all","전체"],...Object.entries(GRP)].map(([k,t]) => `<button class="chip" aria-pressed="${st.grp===k}" data-g="${k}">${t}</button>`).join("")}</div>`;
+}
+function bindGrp(fn){ document.querySelectorAll("[data-g]").forEach(b => b.onclick = () => { st.grp = b.dataset.g; fn(); }); }
+const inGrp = e => st.grp === "all" || e.group === st.grp;
+
+/* ---------- ① trades ---------- */
+function itemHTML(x){
+  const ch = x.kind === "new" ? `비중 ${w(x.weight)}` : x.kind === "exit" ? `직전 ${w(x.prev_weight)}` : `${x.chg > 0 ? "+" : ""}${(x.chg*100).toFixed(1)}% · ${w(x.weight)}`;
+  return `<span class="it"><b>${esc(x.key.length > 8 ? x.name : x.key)}</b> <small>${ch}</small></span>`;
+}
+function renderTrades(){
+  const since = new Date(Date.now() - st.days*86400000).toISOString().slice(0,10);
+  const blocks = [];
+  D.etfs.filter(inGrp).forEach(e => e.trades.filter(t => t.date >= since).forEach(t => blocks.push({e, t})));
+  blocks.sort((a,b) => b.t.date.localeCompare(a.t.date) || a.e.ticker.localeCompare(b.e.ticker));
+  // aggregate across ETFs
+  const agg = {};
+  blocks.forEach(({e,t}) => t.items.forEach(x => { const a = agg[x.key] = agg[x.key] || {key:x.key, name:x.name, buy:new Set(), sell:new Set()}; ((x.kind === "new" || x.kind === "buy") ? a.buy : a.sell).add(e.ticker); }));
+  const top = (k) => Object.values(agg).filter(a => a[k].size).sort((a,b) => b[k].size - a[k].size).slice(0, 12);
+  const aggBox = (k, title) => `<div class="box"><h4>${title}</h4>${top(k).map(a => `<div><b>${esc(a.key.length > 8 ? a.name : a.key)}</b> <span class="note">${a[k].size}개 ETF</span> ${[...a[k]].map(t => `<span class="pill">${t}</span>`).join("")}</div>`).join("") || '<span class="note">없음</span>'}</div>`;
+  const days = {}; blocks.forEach(b => (days[b.t.date] = days[b.t.date] || []).push(b));
+  $("#pane").innerHTML = grpBar() + `<div class="bar"><span class="lbl">기간</span>${[[1,"최근 1일"],[7,"최근 7일"],[30,"최근 30일"]].map(([n,t]) => `<button class="chip o" aria-pressed="${st.days===n}" data-d="${n}">${t}</button>`).join("")}<span class="note">보유 기준일 기준 · ETF ${blocks.length}건</span></div>` +
+    (blocks.length ? `<div class="agg">${aggBox("buy","🔺 여러 ETF가 함께 산 종목 (신규·매수)")}${aggBox("sell","🔻 여러 ETF가 함께 판 종목 (매도·전량 매도)")}</div>` : "") +
+    (Object.keys(days).sort().reverse().map(dd => `<div class="day">${dd} 보유 기준</div>` + days[dd].map(({e,t}) => {
+      const by = k => t.items.filter(x => x.kind === k);
+      return `<div class="tblock"><h3><a data-open="${e.ticker}"><span class="tk">${e.ticker}</span> ${esc(e.name)}</a> ${gb(e.group)} <span class="note">직전 ${t.prev} 대비 · 설정·환매 보정 ×${t.flow.toFixed(3)}</span></h3>
+        <div class="tlist">${["new","exit","buy","sell"].filter(k => by(k).length).map(k => `<span class="k"><span class="bdg ${KIND[k][1]}">${KIND[k][0]}</span> ${by(k).length}</span><div>${by(k).slice(0, 25).map(itemHTML).join("")}${by(k).length > 25 ? `<span class="note">외 ${by(k).length - 25}건</span>` : ""}</div>`).join("")}</div></div>`;
+    }).join("")).join("") || `<div class="empty">해당 기간에 감지된 매매가 없습니다.${D.etfs.some(e => e.snapshots < 2) ? "<br>보유 내역은 사이트 가동 후 두 번째 수집부터 비교됩니다." : ""}</div>`);
+  bindGrp(renderTrades);
+  document.querySelectorAll("[data-d]").forEach(b => b.onclick = () => { st.days = +b.dataset.d; renderTrades(); });
+  document.querySelectorAll("[data-open]").forEach(a => a.onclick = () => { st.tab = "rank"; st.open = a.dataset.open; st.sub = "hold"; render(); });
+}
+
+/* ---------- ② ranking + detail ---------- */
+function renderRank(){
+  const key = {aum:e => e.mkt.aum, r1m:e => e.mkt.r1m, r3m:e => e.mkt.r3m, ytd:e => e.mkt.ytd, r1y:e => e.mkt.r1y, adv:e => e.mkt.adv_usd}[st.sort];
+  const list = D.etfs.filter(inGrp).slice().sort((a,b) => (key(b) ?? -1e18) - (key(a) ?? -1e18));
+  $("#pane").innerHTML = grpBar() + `<div class="bar"><span class="lbl">정렬</span>${[["aum","순자산"],["r1m","1개월"],["r3m","3개월"],["ytd","연초 이후"],["r1y","1년"],["adv","거래대금"]].map(([k,t]) => `<button class="chip o" aria-pressed="${st.sort===k}" data-s="${k}">${t}</button>`).join("")}<span class="note">수익률 = 가격 기준 (분배금 제외) · 행을 누르면 포트폴리오</span></div>
+    <div class="tbl-wrap"><table><thead><tr><th class="l">#</th><th class="l">ETF</th><th class="l">그룹</th><th>순자산</th><th>1개월</th><th>3개월</th><th>연초 이후</th><th>1년</th><th>일평균 거래대금</th><th>종목 수</th><th class="l">최근 매매</th></tr></thead><tbody>` +
+    list.map((e,i) => { const lt = lastTrade(e); return `<tr class="click${st.open === e.ticker ? " on" : ""}" data-e="${e.ticker}"><td class="l">${i+1}</td><td class="l nm"><span class="tk">${e.ticker}</span> ${esc(e.name)}<span class="sm">${ISS[e.issuer] || e.issuer}</span></td><td class="l">${gb(e.group)}</td>
+      <td>${usd(e.mkt.aum)}</td><td>${pc(e.mkt.r1m)}</td><td>${pc(e.mkt.r3m)}</td><td>${pc(e.mkt.ytd)}</td><td>${pc(e.mkt.r1y)}</td><td>${usd(e.mkt.adv_usd)}</td><td>${e.n}</td>
+      <td class="l">${lt ? `${lt.date}<span class="sm">${lt.items.length}건</span>` : '<span class="note">—</span>'}</td></tr>`; }).join("") + `</tbody></table></div><div id="detail"></div>`;
+  bindGrp(renderRank);
+  document.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { st.sort = b.dataset.s; renderRank(); });
+  document.querySelectorAll("tr[data-e]").forEach(r => r.onclick = () => { st.open = st.open === r.dataset.e ? null : r.dataset.e; st.sub = "hold"; renderRank(); });
+  if (st.open && E[st.open]){ renderDetail(E[st.open]); $("#detail").scrollIntoView({behavior:"smooth", block:"start"}); }
+}
+function renderDetail(e){
+  const maxw = Math.max(...e.holdings.map(h => h.weight || 0), 1);
+  let h = `<div class="detail"><h2>${e.ticker} <span class="note">${esc(e.name)}</span></h2>
+    <div class="kv"><span>운용사 <b>${ISS[e.issuer] || e.issuer}</b></span><span>보유 기준일 <b>${e.asof || "—"}</b>${e.asof_from_file ? "" : " (수집일)"}</span><span>종목 수 <b>${e.n}</b></span><span>순자산 <b>${usd(e.mkt.aum)}</b></span><span>출처 <b>${SRC[e.source] || e.source}</b></span></div>
+    ${e.ticker === "JEPI" ? '<p class="note">※ JEPI의 옵션 연계 상품(ELN)·현금은 매니저의 종목 선택이 아니므로 제외하고, 주식 부분만 표시합니다.</p>' : ""}
+    <div class="sub-tabs">${[["hold","보유 포트폴리오"],["trade","최근 매매 이력"]].map(([k,t]) => `<button class="chip o" aria-pressed="${st.sub===k}" data-sub="${k}">${t}</button>`).join("")}</div>`;
+  if (st.sub === "hold"){
+    h += `<div class="tbl-wrap"><table><thead><tr><th class="l">#</th><th class="l">티커</th><th class="l">종목</th><th>비중</th><th>주식 수</th>${e.holdings.some(x => x.value) ? "<th>평가액</th>" : ""}</tr></thead><tbody>` +
+      e.holdings.map((x,i) => `<tr><td class="l">${i+1}</td><td class="l"><b>${esc(x.key.length > 8 ? "—" : x.key)}</b></td><td class="l nm">${esc(x.name)}</td><td>${w(x.weight)}<span class="wbar" style="width:${Math.round((x.weight||0)/maxw*60)}px"></span></td><td>${n0(x.shares)}</td>${e.holdings.some(y => y.value) ? `<td>${usd(x.value)}</td>` : ""}</tr>`).join("") + `</tbody></table></div>`;
+  } else {
+    h += e.trades.length ? e.trades.map(t => `<div class="day">${t.date} <span class="note">(직전 ${t.prev} 대비 · 보정 ×${t.flow.toFixed(3)})</span></div>
+      <div class="tbl-wrap"><table><thead><tr><th class="l">구분</th><th class="l">티커</th><th class="l">종목</th><th>주식 수 변화(보정)</th><th>직전 비중</th><th>현재 비중</th><th>현재 주식 수</th></tr></thead><tbody>` +
+      t.items.map(x => `<tr><td class="l"><span class="bdg ${KIND[x.kind][1]}">${KIND[x.kind][0]}</span></td><td class="l"><b>${esc(x.key.length > 8 ? "—" : x.key)}</b></td><td class="l nm">${esc(x.name)}</td><td>${x.kind === "new" ? "신규" : x.kind === "exit" ? "-100%" : pc(x.chg)}</td><td>${w(x.prev_weight)}</td><td>${w(x.weight)}</td><td>${n0(x.shares)}</td></tr>`).join("") + `</tbody></table></div>`).join("")
+      : `<div class="empty">아직 비교할 이전 보유 내역이 없습니다 (수집 ${e.snapshots}회).</div>`;
+  }
+  $("#detail").innerHTML = h + "</div>";
+  document.querySelectorAll("[data-sub]").forEach(b => b.onclick = () => { st.sub = b.dataset.sub; renderDetail(e); });
+}
+
+/* ---------- ③ AI comparison ---------- */
+function renderAI(){
+  const ai = D.etfs.filter(e => e.group === "ai");
+  const W = {}; ai.forEach(e => { W[e.ticker] = {}; e.holdings.forEach(h => W[e.ticker][h.key] = h.weight || 0); });
+  const ov = (a, b) => Object.keys(W[a]).reduce((s,k) => s + (k in W[b] ? Math.min(W[a][k], W[b][k]) : 0), 0);
+  const names = {}; ai.forEach(e => e.holdings.forEach(h => names[h.key] = names[h.key] || h.name));
+  const all = Object.keys(names).map(k => ({k, cnt: ai.filter(e => k in W[e.ticker]).length, sum: ai.reduce((s,e) => s + (W[e.ticker][k] || 0), 0)}));
+  const common = all.filter(x => x.cnt >= 2).sort((a,b) => b.cnt - a.cnt || b.sum - a.sum);
+  const color = v => `background:rgba(243,115,33,${Math.min(v/60, .85).toFixed(2)});${v > 35 ? "color:#fff" : ""}`;
+  $("#pane").innerHTML = `<p class="note" style="margin-top:14px">AI·기술 액티브 ETF ${ai.length}개의 보유 종목 비교입니다. <b>겹침 비율</b> = 두 ETF가 공통으로 가진 종목의 비중 중 작은 값의 합 (100%면 같은 포트폴리오).</p>
+    <h3>① ETF 간 겹침 비율</h3><div class="tbl-wrap"><table class="heat"><thead><tr><th class="l"></th>${ai.map(e => `<th>${e.ticker}</th>`).join("")}</tr></thead><tbody>` +
+    ai.map(a => `<tr><td class="l"><b>${a.ticker}</b><span class="sm">${esc(a.name)}</span></td>${ai.map(b => a === b ? '<td class="c">—</td>' : `<td class="c" style="${color(ov(a.ticker,b.ticker))}">${ov(a.ticker,b.ticker).toFixed(1)}%</td>`).join("")}</tr>`).join("") + `</tbody></table></div>
+    <h3>② 공통 보유 종목 (2개 이상 ETF 보유)</h3><div class="tbl-wrap"><table><thead><tr><th class="l">티커</th><th class="l">종목</th><th>보유 ETF 수</th>${ai.map(e => `<th>${e.ticker}</th>`).join("")}</tr></thead><tbody>` +
+    common.slice(0, 60).map(x => `<tr><td class="l"><b>${esc(x.k.length > 8 ? "—" : x.k)}</b></td><td class="l nm">${esc(names[x.k])}</td><td><b>${x.cnt}</b></td>${ai.map(e => `<td>${x.k in W[e.ticker] ? w(W[e.ticker][x.k]) : '<span class="note">·</span>'}</td>`).join("")}</tr>`).join("") + `</tbody></table></div>
+    <h3>③ ETF별 단독 보유 상위 종목</h3><div class="agg">` +
+    ai.map(e => `<div class="box"><h4>${e.ticker} <span class="note">${esc(e.name)}</span></h4>${e.holdings.filter(h => all.find(x => x.k === h.key).cnt === 1).slice(0, 10).map(h => `<span class="it"><b>${esc(h.key.length > 8 ? h.name : h.key)}</b> <small>${w(h.weight)}</small></span>`).join("") || '<span class="note">없음</span>'}</div>`).join("") + `</div>`;
+}
+
+/* ---------- ④ search ---------- */
+function renderSearch(){
+  $("#pane").innerHTML = `<div class="bar"><span class="lbl">종목</span><input class="search" id="q" placeholder="티커 또는 종목명 (예: NVDA, Tesla)" value="${esc(st.q)}"><span class="note">이 종목을 담은 액티브 ETF와 최근 매매</span></div><div id="res"></div>`;
+  const run = () => {
+    const q = st.q.trim().toUpperCase(), box = $("#res");
+    if (q.length < 2){ box.innerHTML = '<div class="empty">두 글자 이상 입력하세요.</div>'; return; }
+    const hit = h => h.key.toUpperCase() === q || h.name.toUpperCase().includes(q);
+    const hold = [], tr = [];
+    D.etfs.forEach(e => { e.holdings.forEach((h,i) => { if (hit(h)) hold.push({e, h, rank:i+1}); }); e.trades.forEach(t => t.items.forEach(x => { if (hit(x)) tr.push({e, t, x}); })); });
+    hold.sort((a,b) => (b.h.weight||0) - (a.h.weight||0)); tr.sort((a,b) => b.t.date.localeCompare(a.t.date));
+    box.innerHTML = (hold.length ? `<h3>보유 중인 ETF (${hold.length})</h3><div class="tbl-wrap"><table><thead><tr><th class="l">ETF</th><th class="l">종목</th><th>비중</th><th>순위</th><th>주식 수</th><th class="l">기준일</th></tr></thead><tbody>` +
+      hold.map(({e,h,rank}) => `<tr><td class="l"><b>${e.ticker}</b> ${gb(e.group)}</td><td class="l nm">${esc(h.name)}</td><td>${w(h.weight)}</td><td>${rank}위</td><td>${n0(h.shares)}</td><td class="l">${e.asof}</td></tr>`).join("") + `</tbody></table></div>` : '<div class="empty">보유 중인 ETF가 없습니다.</div>') +
+      (tr.length ? `<h3>최근 매매</h3><div class="tbl-wrap"><table><thead><tr><th class="l">기준일</th><th class="l">ETF</th><th class="l">구분</th><th>변화</th><th>현재 비중</th></tr></thead><tbody>` +
+      tr.map(({e,t,x}) => `<tr><td class="l">${t.date}</td><td class="l"><b>${e.ticker}</b></td><td class="l"><span class="bdg ${KIND[x.kind][1]}">${KIND[x.kind][0]}</span></td><td>${x.kind === "new" ? "신규" : x.kind === "exit" ? "-100%" : pc(x.chg)}</td><td>${w(x.weight)}</td></tr>`).join("") + `</tbody></table></div>` : "");
+  };
+  $("#q").addEventListener("input", e => { st.q = e.target.value; run(); });
+  run();
+}
+</script>
+</body>
+</html>
