@@ -1,285 +1,196 @@
 {
- "run_at_utc": "2026-11-03T04:58:27",
+ "run_at_utc": "2026-11-03T05:08:18",
+ "round": 2,
  "checks": [
   {
-   "status": 200,
-   "bytes": 1907602,
-   "pages": {
-    "DYNF": "/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf",
-    "BAI": "/us/products/339081/ishares-a-i-innovation-and-tech-active-etf"
-   },
-   "sample": "{\"239619\":{\"aladdinAssetClass\":\"Equity\",\"aladdinAssetClassCode\":\"43511\",\"aladdinCountry\":\"China\",\"aladdinCountryCode\":\"43544\",\"aladdinMarketType\":\"Emerging\",\"aladdinMarketTypeCode\":\"43524\",\"aladdinRegion\":\"Asia Pacific\",\"aladdinRegionCode\":\"43526\",\"aladdinSubAssetClass\":\"Large/Mid Cap\",\"aladdinSubAssetClassCode\":\"43581\",\"cleanDuration\":null,\"cusip\":\"46429B671\",\"dailyPerformanceYearToDate\":{\"d\":\"-1",
-   "name": "ishares_screener",
-   "ok": true
-  },
-  {
-   "url": "https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/1467271812596.ajax?fileType=csv&fileName=BAI_holdings&dataType=fund",
-   "final": "https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/1467271812596.ajax?fileType=csv&fileName=BAI_holdings&dataType=fund",
+   "url": "https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/1467271812596.ajax?fileType=csv&fileName=BAI_holdings&dataType=fund&siteEntryPassthrough=true",
    "status": 200,
    "ctype": "text/csv;charset=UTF-8",
-   "bytes": 1431255,
-   "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c056e6d7aee1fad.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-b3c0c3efa159aa10402ba68313a8bec7.css\" as=\"style\" />\n<script nonce=\"CLbZTCvmC6foPpKHIOes8A==\">\n//<![CDATA[\nvar vice= { config: { viceAccountId: 'blackrock', viceSiteId: 'isharesprod', viceZoneId: ",
+   "bytes": 1431281,
+   "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c",
    "name": "ishares_BAI",
    "ok": false
   },
   {
-   "url": "https://www.ishares.com/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf/1467271812596.ajax?fileType=csv&fileName=DYNF_holdings&dataType=fund",
-   "final": "https://www.ishares.com/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf/1467271812596.ajax?fileType=csv&fileName=DYNF_holdings&dataType=fund",
+   "url": "https://www.ishares.com/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf/1467271812596.ajax?fileType=csv&fileName=DYNF_holdings&dataType=fund&siteEntryPassthrough=true",
    "status": 200,
    "ctype": "text/csv;charset=UTF-8",
-   "bytes": 1486264,
-   "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c056e6d7aee1fad.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-b3c0c3efa159aa10402ba68313a8bec7.css\" as=\"style\" />\n<script nonce=\"Wtqbv+zK2yErhXMDFS1J7w==\">\n//<![CDATA[\nvar vice= { config: { viceAccountId: 'blackrock', viceSiteId: 'isharesprod', viceZoneId: ",
+   "bytes": 1486290,
+   "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c",
    "name": "ishares_DYNF",
    "ok": false
   },
   {
-   "url": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
-   "final": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
    "status": 200,
-   "ctype": "application/octet-stream",
-   "bytes": 6263,
-   "sample": "<binary 6263 bytes, application/octet-stream>",
-   "name": "ark_ARKK",
-   "ok": false
-  },
-  {
-   "url": "https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
-   "final": "https://www.ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv",
-   "status": 404,
-   "ctype": "text/html; charset=utf-8",
-   "bytes": 121541,
-   "sample": "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    \n\n\n<link rel=\"canonical\" href=\"\">\n\n<title>Error - ARK Funds</title>\n<meta name=\"description\" content=\"\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"robots\" content=\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\">\n<meta name=\"header-hide\" content=\"False\">\n<meta property=\"og:locale\" content=\"en_US\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Error - ARK Funds\">\n<meta property=\"og:description\" content=\"\">\n<meta property=\"og:url\" content=\"\">\n<meta property=\"og:site_name\" content=\"Ark Invest\">\n<meta property=\"og:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"disclosure\" content=\"funds\">\n<meta name=\"facebook-domain-verification\" content=\"i7k3ss5pgqu94a55m0hyz4g99zu0cx\">\n<meta property=\"fb:app_id\" content=\"1116394810970368\">\n\n\n\n<style>\n\t.m",
-   "name": "ark_ARKK",
-   "ok": false
-  },
-  {
-   "url": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
-   "final": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
-   "status": 200,
-   "ctype": "application/octet-stream",
-   "bytes": 5919,
-   "sample": "<binary 5919 bytes, application/octet-stream>",
-   "name": "ark_ARKW",
-   "ok": false
-  },
-  {
-   "url": "https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
-   "final": "https://www.ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv",
-   "status": 404,
-   "ctype": "text/html; charset=utf-8",
-   "bytes": 121541,
-   "sample": "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    \n\n\n<link rel=\"canonical\" href=\"\">\n\n<title>Error - ARK Funds</title>\n<meta name=\"description\" content=\"\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"robots\" content=\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\">\n<meta name=\"header-hide\" content=\"False\">\n<meta property=\"og:locale\" content=\"en_US\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Error - ARK Funds\">\n<meta property=\"og:description\" content=\"\">\n<meta property=\"og:url\" content=\"\">\n<meta property=\"og:site_name\" content=\"Ark Invest\">\n<meta property=\"og:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"disclosure\" content=\"funds\">\n<meta name=\"facebook-domain-verification\" content=\"i7k3ss5pgqu94a55m0hyz4g99zu0cx\">\n<meta property=\"fb:app_id\" content=\"1116394810970368\">\n\n\n\n<style>\n\t.m",
-   "name": "ark_ARKW",
-   "ok": false
-  },
-  {
-   "url": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
-   "final": "https://assets.ark-funds.com/fund-documents/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
-   "status": 200,
-   "ctype": "application/octet-stream",
-   "bytes": 5363,
-   "sample": "<binary 5363 bytes, application/octet-stream>",
-   "name": "ark_ARKQ",
-   "ok": false
-  },
-  {
-   "url": "https://ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
-   "final": "https://www.ark-funds.com/wp-content/uploads/funds-etf-csv/ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv",
-   "status": 404,
-   "ctype": "text/html; charset=utf-8",
-   "bytes": 121541,
-   "sample": "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    \n\n\n<link rel=\"canonical\" href=\"\">\n\n<title>Error - ARK Funds</title>\n<meta name=\"description\" content=\"\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"robots\" content=\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\">\n<meta name=\"header-hide\" content=\"False\">\n<meta property=\"og:locale\" content=\"en_US\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Error - ARK Funds\">\n<meta property=\"og:description\" content=\"\">\n<meta property=\"og:url\" content=\"\">\n<meta property=\"og:site_name\" content=\"Ark Invest\">\n<meta property=\"og:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:image\" content=\"https://assets.ark-funds.com/media-12243148-2a3e-4996-9763-260f93905eb9/90a5283e-7d28-4d42-90cc-2a486d39fdd6/ark-logo-1-1.svg\">\n<meta name=\"disclosure\" content=\"funds\">\n<meta name=\"facebook-domain-verification\" content=\"i7k3ss5pgqu94a55m0hyz4g99zu0cx\">\n<meta property=\"fb:app_id\" content=\"1116394810970368\">\n\n\n\n<style>\n\t.m",
-   "name": "ark_ARKQ",
-   "ok": false
-  },
-  {
-   "url": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46641Q332&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
-   "final": "https://am.jpmorgan.com/FundsMarketingHandler/excel?type=dailyETFHoldings&cusip=46641Q332&country=us&role=adv&fundType=N_ETF&locale=en-US&isUnderlyingHolding=false&isProxyHolding=false",
-   "status": 200,
-   "ctype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8",
-   "bytes": 26871,
-   "sample": "<binary 26871 bytes, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8>",
-   "name": "jpm_JEPI",
+   "sample": "date,fund,company,ticker,cusip,shares,market value ($),weight (%)\r\n11/02/2026,ARKK,TESLA INC,TSLA,88160R101,\"1,728,230\",\"$690,963,636.30\",11.20%\r\n11/02/2026,ARKK,SPACE EXPLORATION TECHN-CL A,SPCX,84615Q103,\"2,768,632\",\"$372,990,103.04\",6.05%\r\n11/02/2026,ARKK,TEMPUS AI INC-CL A,TEM,88023B103,\"4,890,251\",\"$353,173,927.22\",5.73%\r\n11/02/2026,ARKK,CRISPR THERAPEUTICS AG,CRSP,H17182108,\"5,381,819\",\"$276,733,132.98\",4.49%\r\n11/02/2026,ARKK,CIRCLE INTERNET GROUP INC,CRCL,172573107,\"3,813,256\",\"$276,613,590.24\",4.48%\r\n11/02/2026,ARKK,OPENAI GROUP PBC SERIES C,,PPOPENAIC,\"254,476\",\"$249,369,582.79\",4.04%\r\n11/02/2026,ARKK,COINBASE GLOBAL INC -CLASS A,COIN,19260Q107,\"1,622,945\",\"$232,957,525.30\",3.78%\r\n11/02/2026,ARKK,TWIST BIOSCIENCE CORP,TWST,90184D100,\"1,346,052\",\"$205,649,824.56\",3.33%\r\n11/02/2026,ARKK,SHOPIFY INC - CLASS A,SHOP,82509L107,\"1,212,270\",\"$190,920,402.30\",3.10%\r\n11/02/2026,ARKK,NVIDI",
+   "name": "ark_ARKK_csv",
    "ok": true
   },
   {
-   "url": "https://www.roundhillinvestments.com/etf/chat/",
-   "final": "https://www.roundhillinvestments.com/etf/chat/",
-   "status": 200,
-   "bytes": 122969,
-   "holding_links": [],
-   "files": [],
-   "sample": "holdings\" id=\"CHAT\"> <!-- Google Tag Manager (noscript) --> <noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-PGWH6BM\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> <div data-sticky-container> <div class=\"title-bar baretfs\" data-hide-for=\"large\" data-responsive-toggle=\"mainNavigation\" style=\"display: none;\"> <div class=\"title-bar-left\"> <a href=\"/\" aria-label=\"Homepage\"><img alt=\"Roundhill Logo\" id=\"site-logo\" src=\"../../assets/img/roundhill-round-logo-black.svg\" sty",
-   "name": "page_CHAT",
-   "ok": true
-  },
-  {
-   "url": "https://www.capitalgroup.com/individual/investments/fund/cggr",
-   "final": "https://www.capitalgroup.com/individual/investments/fund/cggr",
-   "status": 404,
-   "bytes": 0,
-   "holding_links": [],
-   "files": [],
-   "sample": "",
-   "name": "page_CGGR",
-   "ok": false
-  },
-  {
-   "url": "https://www.capitalgroup.com/advisor/investments/etf/cggr",
-   "final": "https://www.capitalgroup.com/advisor/investments/etf/cggr",
-   "status": 404,
-   "bytes": 0,
-   "holding_links": [],
-   "files": [],
-   "sample": "",
-   "name": "page_CGGR",
-   "ok": false
-  },
-  {
-   "url": "https://www.capitalgroup.com/individual/investments/fund/cgdv",
-   "final": "https://www.capitalgroup.com/individual/investments/fund/cgdv",
-   "status": 404,
-   "bytes": 0,
-   "holding_links": [],
-   "files": [],
-   "sample": "",
-   "name": "page_CGDV",
-   "ok": false
-  },
-  {
-   "url": "https://www.fidelity.com/etfs/fbcg",
-   "final": "https://www.fidelity.com/etfs/fbcg",
-   "status": 400,
-   "bytes": 0,
-   "holding_links": [],
-   "files": [],
-   "sample": "",
-   "name": "page_FBCG",
-   "ok": false
-  },
-  {
-   "url": "https://fundresearch.fidelity.com/mutual-funds/summary/316092311",
-   "final": "https://fundresearch.fidelity.com/mutual-funds/summary/316092311",
-   "status": 200,
-   "bytes": 31523,
-   "holding_links": [],
-   "files": [],
-   "sample": "holdingsUrl\":\"https://eresearch.fidelity.com/eresearch/evaluate/snapshot.jhtml?symbols={{SYMBOL}}\",\"fundPicksUrl\":\"https://fundresearch.fidelity.com/fund-screener/picks\",\"exchangeUrl\":\"https://digital.fidelity.com/ftgw/digital/trade-mutualfund?ORDER_TYPE=M&SYMBOL={{SYMBOL}}&ORDER_ACTION=EF\",\"fidelityFundsUrl\":\"https://fundresearch.fidelity.com/fund-screener/results/table/overview/averageAnnualReturnsYear3/desc/1?fidelityFundOnly=F&indexFundOnly=Index&order=fidelityFundOnly,indexFundOnly\",\"factSheetUrl\":\"https://fundresearch.fidelity.com/{{URL_POINTS_TO}}/fundfactpdf/{{INVESTMENT_ID}}?appcode={",
-   "name": "page_FBCG",
-   "ok": true
-  },
-  {
-   "url": "https://www.troweprice.com/personal-investing/tools/fund-research/TCHP",
-   "final": "https://www.troweprice.com/personal-investing/tools/fund-research/TCHP",
-   "status": 200,
-   "bytes": 7857,
-   "holding_links": [],
-   "files": [],
-   "sample": "",
-   "name": "page_TCHP",
-   "ok": true
-  },
-  {
-   "url": "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/blue-chip-growth-etf.html",
-   "final": "https://www.troweprice.com/financial-intermediary/us/en/investments/etfs/blue-chip-growth-etf.html",
-   "status": 200,
-   "bytes": 299954,
-   "holding_links": [
-    "https://www.troweprice.com/literature/public/country/us/language/en/literature-type/portfolio-holdings/sub-type/quarterly?productCode=BCX&amp;currency=USD&quot;,&quot;isExternalURL&quot;:false}],&quot;keyFacts&quot;:[{&quot;title&quot;:&quot;Net",
-    "https://www.troweprice.com/literature/public/country/us/language/en/literature-type/portfolio-holdings/sub-type/quarterly?productCode=BCX&amp;currency=USD&quot;,&quot;locked&quot;:false,&quot;isExternalURL&quot;:false}],&quot;metadata&quot;:null}}",
-    "https://www.troweprice.com/literature/public/country/us/language/en/literature-type/portfolio-holdings/sub-type/quarterly?productCode=BCX&amp;currency=USD&quot;,&quot;locked&quot;:false,&quot;isExternalURL&quot;:false}]}"
+   "sheets": [
+    "Holdings"
    ],
-   "files": [],
-   "sample": "holdings-excel-download-etf\":false,\"market-data-previous-day-trading-volume\":true,\"cit-overview-table\":false,\"if-performance-table\":true,\"if-portfolio\":false,\"enable-cit-header\":false,\"emea-etf-holdings-market-ticker\":false}') }; </script> <script> window.metricsData = { page: { lob: \"INST\", site: \"FAI\", } }; </script> <script src=\"//assets.adobedtm.com/b6157d8f598e/a4667a2548dc/launch-bf819d07311a.min.js\"></sc",
-   "name": "page_TCHP",
+   "sample": "[[\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"Holdings\", \"JPMorgan Equity Premium Income ETF - 46641Q332\", \"\", \"\", \"\", \"\", \"\", \"As of Date: 11/02/2026\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], [\"Ticker\", \"Security Description\", \"Security Type\", \"Method\", \"Shares/Par\", \"Market Value (USD)\", \"Country\", \"Currency\", \"Sector\", \"Industry\", \"Coupon\", \"Maturity Date\", \"Effective Date\", \"Contract Size\", \"Strike Price\", \"% of Market Value\", \"% of Net Assets\"], [\"MA\", \"MASTERCARD INC COMMON\", \"DOMESTIC COMMON STOCK\", \"Physical\", \"1416120\", \"931948572.0\", \"United States\", \"USD\", \"Financials\", \"Financial Services\", \"0.0\", \"\", \"\", \"\", \"0.0\", \"2.02%\", \"2.02%\"], [\"V\", \"VISA INC COMMON STOCK USD\", \"DOMESTIC COMMON STOCK\", \"Physical\", \"2064229\", \"878350081.79\", \"United States\", \"USD\", \"Financials\", \"Financial Services\", \"0.0\", \"\", \"\", \"\", \"0.0\", \"1.9%\", \"1.91%\"], [\"AAPL\", \"APPLE INC COMMON STOCK\", \"DOMESTIC COMMON STOCK\", \"Physical\", \"2588719\", \"875815412.08\", \"United States\", \"USD\", \"Information Technology\", \"Computers & Peripherals\", \"0.0\", \"\", \"\", \"\", \"0.0\", \"1.9%\", \"1.9%\"], [\"MSFT\", \"MICROSOFT CORP COMMON\", \"DOMESTIC COMMON STOCK\", \"Physical\", \"1707276\", \"865793805.12\", \"United States\", \"USD\", \"Information Technology\", \"Software\", \"0.0\", \"\", \"\", \"\", \"0.0\", \"1.87%\", \"1.88%\"], [\"NEE\", \"NEXTERA ENERGY INC\", \"DOMESTIC COMMON STOCK\", \"Physical\", \"9910157\", \"842660649.71\", \"United States\", \"USD\", \"Utilities\", \"Electric Uti",
+   "name": "jpm_JEPI_xlsx",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/bai/holdings/",
-   "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_BAI",
+   "tds": 34,
+   "endpoints": [],
+   "srcs": [
+    "../../assets/js/app.js",
+    "../../assets/pdfs/Roundhill_CHAT_Voting_Table_2026.xlsx",
+    "//js.hs-scripts.com/22110619.js",
+    "//js.hsforms.net/forms/embed/v2.js",
+    "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.2/feather.min.js",
+    "https://code.jquery.com/jquery-2.2.4.min.js",
+    "https://www.google.com/recaptcha/api.js"
+   ],
+   "sample": "Top Holdings\" href=\"#holdings\">Top Holdings</a></li> <li><a class=\"performancen btn-subnav\" data-navigation=\"CHAT Performance\" href=\"#performance\">Performance</a></li> <li><a class=\"distributionsn btn-subnav\" data-navigation=\"CHAT Distributions\" href=\"#distributions\">Distributions</a></li> <li><a class=\"documentsn btn-subnav\" data-navigation=\"CHAT Documents\" href=\"#documents\">Documents</a></li> <li><a class=\"premiumn btn-subnav\" data-navigation=\"CHAT Premium/Discount\" href=\"#premium\">Premium/Discount</a></li> <li><a class=\"faqn btn-subnav\" data-navigation=\"CHAT FAQ\" href=\"#faq\">FAQ</a></li> </ul> </div> </div> </div> </div> </div> </div> </div> </div> <div class=\"altColorSection\"> <div class=\"altBack\"> <div class=\"grid-container pageDivision\" style=\"padding-top:0;padding-bottom:0;\"> <div class=\"grid-x grid-margin-x\"> <div class=\"cell small-12 large-9\"> <div class=\"main-area-block\" id=\"overview\"> <div class=\"ma-block overview-intro\"> <h2>Overview</h2> <p>Roundhill believes that generative artificial intelligence will be one of the most impactful technological innovations of the coming decades, driving productivity growth across the global economy. The Roundhill Generative AI & Technology ETF (âCHATâ) is the worldâs first Generative AI ETF. CHAT is an actively-managed ETF.</p> </div> <div class=\"ma-block why-section\"> <h3>Why CHAT?</h3> <div class=\"why-block first-wm-block\"> <div class=\"grid-x grid-margin-x\"> <div class=\"cell small-12 medium-2\"> <p class=\"wm-icon-holder\"><i data-feather=\"activity\"></i></p> </div> <div class=\"cell small-12 medium-10 align-self-middle\"> <p class=\"wm-content\"><span class=\"black-text\">Generative AI Revolution -</span> AI-driven tools and platforms are significantly boosting enterprise productivity, efficiency, and decision-making.</p> </div> </div> </div> <div class=\"why-block\"> <div class=\"grid-x grid-margin-x\"> <div class",
+   "name": "roundhill_page",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/chat/holdings/",
+   "url": "https://www.roundhillinvestments.com/assets/data/CHAT_holdings.csv",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_CHAT",
+   "ctype": "text/html",
+   "bytes": 70329,
+   "sample": "\r\n<!doctype html>\r\n<html class=\"no-js\" lang=\"en\">\r\n<head>\r\n  <!-- Google Tag Manager -->\r\n  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\r\n  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\r\n  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\r\n  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\r\n  })(window,document,'script','dataLayer','GTM-PGWH6BM');</script>\r\n  <!-- End Google Tag Manager -->\r\n  <META HTTP-EQUIV=\"Content-type\" CONTENT=\"text/html; charset=UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\">\r\n\r\n  <meta name=\"format-detection\" content=\"telephone=no\">\r\n\r\n  <title>Page Not Found | Roundhill Investments</title>\r\n\r\n  <link rel=\"canonical\" href=\"https://www.roundhillinvestments.com/\" />\r\n\r\n  <link rel=\"stylesheet\" href=\"assets/css/app.css\">\r\n  <!-- <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cloud.typography.com/6255774/6676812/css/fonts.css\" /> -->\r\n  <meta name=\"description\" content=\"\">\r\n  <meta name=\"twitter:card\" content=\"summary\">\r\n  <meta property=\"og:title\" content=\"Page N",
+   "name": "roundhill_try",
+   "ok": false
+  },
+  {
+   "url": "https://www.roundhillinvestments.com/assets/data/holdings/CHAT.csv",
+   "status": 200,
+   "ctype": "text/html",
+   "bytes": 70329,
+   "sample": "\r\n<!doctype html>\r\n<html class=\"no-js\" lang=\"en\">\r\n<head>\r\n  <!-- Google Tag Manager -->\r\n  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\r\n  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\r\n  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\r\n  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\r\n  })(window,document,'script','dataLayer','GTM-PGWH6BM');</script>\r\n  <!-- End Google Tag Manager -->\r\n  <META HTTP-EQUIV=\"Content-type\" CONTENT=\"text/html; charset=UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\">\r\n\r\n  <meta name=\"format-detection\" content=\"telephone=no\">\r\n\r\n  <title>Page Not Found | Roundhill Investments</title>\r\n\r\n  <link rel=\"canonical\" href=\"https://www.roundhillinvestments.com/\" />\r\n\r\n  <link rel=\"stylesheet\" href=\"assets/css/app.css\">\r\n  <!-- <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cloud.typography.com/6255774/6676812/css/fonts.css\" /> -->\r\n  <meta name=\"description\" content=\"\">\r\n  <meta name=\"twitter:card\" content=\"summary\">\r\n  <meta property=\"og:title\" content=\"Page N",
+   "name": "roundhill_try",
+   "ok": false
+  },
+  {
+   "url": "https://www.roundhillinvestments.com/etf/chat/holdings.csv",
+   "status": 200,
+   "ctype": "text/html",
+   "bytes": 70329,
+   "sample": "\r\n<!doctype html>\r\n<html class=\"no-js\" lang=\"en\">\r\n<head>\r\n  <!-- Google Tag Manager -->\r\n  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\r\n  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\r\n  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\r\n  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\r\n  })(window,document,'script','dataLayer','GTM-PGWH6BM');</script>\r\n  <!-- End Google Tag Manager -->\r\n  <META HTTP-EQUIV=\"Content-type\" CONTENT=\"text/html; charset=UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <meta http-equiv=\"x-ua-compatible\" content=\"IE=edge\">\r\n\r\n  <meta name=\"format-detection\" content=\"telephone=no\">\r\n\r\n  <title>Page Not Found | Roundhill Investments</title>\r\n\r\n  <link rel=\"canonical\" href=\"https://www.roundhillinvestments.com/\" />\r\n\r\n  <link rel=\"stylesheet\" href=\"assets/css/app.css\">\r\n  <!-- <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cloud.typography.com/6255774/6676812/css/fonts.css\" /> -->\r\n  <meta name=\"description\" content=\"\">\r\n  <meta name=\"twitter:card\" content=\"summary\">\r\n  <meta property=\"og:title\" content=\"Page N",
+   "name": "roundhill_try",
+   "ok": false
+  },
+  {
+   "url": "https://www.capitalgroup.com/individual/investments/fund/cggr.html",
+   "status": 404,
+   "ctype": "text/html;charset=utf-8",
+   "bytes": 93198,
+   "links": [],
+   "sample": "\n<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n  <meta charset=\"UTF-8\"/>\n  <title>We’re sorry… | Capital Group</title>\n  \n  \n  <meta name=\"template\" content=\"error---pardon-template\"/>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  <meta name=\"content-access-tier\" content=\"false\"/>\n  <meta name=\"audience-code\" content=\"individual\"/>\n  \n  \n  \n  \n  \n  \n \n    <meta name=\"content-page-ref\" content=\"fn72dIGOeEdAZgQzz_qVfV-3Lj8Wok7b76U2XOpLqhie6nkCiUxEMUO0TjR49N7AzfRFDBPs6zxWzlWw2tjerOKE0c9smmp4zd5FJ15EBc8\"/>\n<script defer=\"defer\" type=\"text/",
+   "name": "capgroup",
+   "ok": false
+  },
+  {
+   "url": "https://www.capitalgroup.com/advisor/investments/fund/cggr",
+   "status": 404,
+   "ctype": "",
+   "bytes": 0,
+   "links": [],
+   "sample": "<binary 0 >",
+   "name": "capgroup",
+   "ok": false
+  },
+  {
+   "url": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggr/download/daily-holdings?audience=advisor&redirect=true",
+   "status": 200,
+   "ctype": "application/octet-stream",
+   "bytes": 17954,
+   "links": [],
+   "sample": "<binary 17954 application/octet-stream>",
+   "name": "capgroup",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/arkk/holdings/",
+   "url": "https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/cggr/download/daily-holdings?audience=individual&redirect=true",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_ARKK",
+   "ctype": "application/octet-stream",
+   "bytes": 17967,
+   "links": [],
+   "sample": "<binary 17967 application/octet-stream>",
+   "name": "capgroup",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/arkw/holdings/",
+   "url": "https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=FBCG",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_ARKW",
+   "bytes": 203581,
+   "sample": "<!DOCTYPE html> <html lang=\"en-us\"> <head> <!-- begin headers --> <title>FBCG - FIDELITY BLUE CHIP GROWTH ETF | ETF Quotes from Fidelity Investments</title> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <meta charset=\"UTF-8\" /> <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /> <meta http-equiv=\"Content-Language\" content=\"en\" /> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" /> <!-- needs to be in head as it can be loaded into window --> <!-- begin app specific scripts --> <script> app = { name: \"FBCG - FIDELITY BLUE CHIP GROWTH ETF | ETF Quotes from Fidelity Investments\", ",
+   "name": "fidelity",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/arkq/holdings/",
+   "url": "https://fundresearch.fidelity.com/mutual-funds/composition/316092311",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_ARKQ",
+   "bytes": 31524,
+   "sample": " <!DOCTYPE HTML> <html lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"> <head> <!--[if IE]> <script type=\"text/javascript\"> window.location = \"https://www.fidelity.com/customer-service/faqs-technical-support#\"; </script> <![endif]--> <script type=\"text/javascript\"> if (window.navigator.msPointerEnabled) { window.location = \"https://www.fidelity.com/customer-service/faqs-technical-support#\"; } </script> <meta name=\"viewport\" content=\"width=device-width\"> <meta name=\"description\" content=\"Analyze the Fund having Symbol for type mutual-funds and perform research on other mutual funds. Learn more about mutual",
+   "name": "fidelity",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/cggr/holdings/",
-   "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_CGGR",
+   "url": "https://www.actionsxchangerepository.fidelity.com/ShowDocument/ComplianceEnvelope/DailyHoldings_FBCG.csv",
+   "status": 404,
+   "bytes": 425,
+   "sample": " <html> <head> <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/> <title>ActionsXchange Compliance Window</title> <link rel=\"stylesheet\" type=\"text/css\" href=\"table_comstyle.css\" /> </head> <div id=\"errorPage_div\" class=\"fundError\"> <br><br> The document you requested is unavailable, please contact Fidelity Investments for additional information.<br> </div> </html> ",
+   "name": "fidelity",
+   "ok": false
+  },
+  {
+   "keys": [
+    "emea-etf-holdings-market-ticker",
+    "holdings",
+    "holdings-excel-download-etf"
+   ],
+   "apis": [
+    "//api.public.troweprice.com/ds-dada/graphql",
+    "//www.troweprice.com/retirement-plan-services/en/home.html",
+    "/api.awstrp.net",
+    "/api.public.troweprice.com"
+   ],
+   "name": "troweprice_page",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/fbcg/holdings/",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_FBCG",
+   "rows": 103,
+   "sample": "[ [ \"<span class=\\\"truncated_text_single\\\" title=\\\"META PLATFORMS INC CLASS A COMMON STOCK USD.000006\\\">META PLATFORMS ..</span>\", \"<button class=\\\"modal_external appear-on-focus\\\" href=\\\"\\/modals\\/quick-quote.php\\\" rel=\\\"META\\\">META Quick Quote<\\/button><a href=\\\"\\/\\/www.zacks.com\\/funds\\/etf\\/META\\\" rel=\\\"META\\\" class=\\\" hoverquote-container-od \\\" show-add-portfolio=\\\"true\\\" ><span class=\\\"hoverquote-symbol\\\">META<span class=\\\"sr-only\\\"><\\/span><\\/span><\\/a>\", \"2,393,767\", \"7.07\", \"-5.15\", \"<a",
+   "name": "zacks_CGGR",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/tchp/holdings/",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_TCHP",
+   "rows": 49,
+   "sample": "[ [ \"NVIDIA Corp\", \"<button class=\\\"modal_external appear-on-focus\\\" href=\\\"\\/modals\\/quick-quote.php\\\" rel=\\\"NVDA\\\">NVDA Quick Quote<\\/button><a href=\\\"\\/\\/www.zacks.com\\/funds\\/etf\\/NVDA\\\" rel=\\\"NVDA\\\" class=\\\" hoverquote-container-od \\\" show-add-portfolio=\\\"true\\\" ><span class=\\\"hoverquote-symbol\\\">NVDA<span class=\\\"sr-only\\\"><\\/span><\\/span><\\/a>\", \"574,755\", \"6.82\", \"1.06\", \"<a class=\\\"report_document newwin\\\" href=\\\"/zer/report/NVDA\\\" alt=\\\"View Report NVDA\\\" title=\\\"Analyst Report for NVD",
+   "name": "zacks_CHAT",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/cgdv/holdings/",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_CGDV",
+   "rows": 201,
+   "sample": "[ [ \"NVIDIA Corp\", \"<button class=\\\"modal_external appear-on-focus\\\" href=\\\"\\/modals\\/quick-quote.php\\\" rel=\\\"NVDA\\\">NVDA Quick Quote<\\/button><a href=\\\"\\/\\/www.zacks.com\\/funds\\/etf\\/NVDA\\\" rel=\\\"NVDA\\\" class=\\\" hoverquote-container-od \\\" show-add-portfolio=\\\"true\\\" ><span class=\\\"hoverquote-symbol\\\">NVDA<span class=\\\"sr-only\\\"><\\/span><\\/span><\\/a>\", \"NA\", \"15.68\", \"1.06\", \"<a class=\\\"report_document newwin\\\" href=\\\"/zer/report/NVDA\\\" alt=\\\"View Report NVDA\\\" title=\\\"Analyst Report for NVDA\\\">",
+   "name": "zacks_FBCG",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/dynf/holdings/",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_DYNF",
+   "rows": 62,
+   "sample": "[ [ \"NVIDIA CORP\", \"<button class=\\\"modal_external appear-on-focus\\\" href=\\\"\\/modals\\/quick-quote.php\\\" rel=\\\"NVDA\\\">NVDA Quick Quote<\\/button><a href=\\\"\\/\\/www.zacks.com\\/funds\\/etf\\/NVDA\\\" rel=\\\"NVDA\\\" class=\\\" hoverquote-container-od \\\" show-add-portfolio=\\\"true\\\" ><span class=\\\"hoverquote-symbol\\\">NVDA<span class=\\\"sr-only\\\"><\\/span><\\/span><\\/a>\", \"200\", \"17.87\", \"1.06\", \"<a class=\\\"report_document newwin\\\" href=\\\"/zer/report/NVDA\\\" alt=\\\"View Report NVDA\\\" title=\\\"Analyst Report for NVDA\\\"",
+   "name": "zacks_TCHP",
    "ok": true
   },
   {
-   "url": "https://stockanalysis.com/etf/jepi/holdings/",
    "status": 200,
-   "rows": 26,
-   "asof": "",
-   "name": "fallback_JEPI",
+   "rows": 58,
+   "sample": "[ [ \"<span class=\\\"truncated_text_single\\\" title=\\\"MICROSOFT CORP COMMON STOCK USD.00000625\\\">MICROSOFT CORP ..</span>\", \"<button class=\\\"modal_external appear-on-focus\\\" href=\\\"\\/modals\\/quick-quote.php\\\" rel=\\\"MSFT\\\">MSFT Quick Quote<\\/button><a href=\\\"\\/\\/www.zacks.com\\/funds\\/etf\\/MSFT\\\" rel=\\\"MSFT\\\" class=\\\" hoverquote-container-od \\\" show-add-portfolio=\\\"true\\\" ><span class=\\\"hoverquote-symbol\\\">MSFT<span class=\\\"sr-only\\\"><\\/span><\\/span><\\/a>\", \"5,902,544\", \"7.57\", \"0.79\", \"<a class=\\\"re",
+   "name": "zacks_CGDV",
    "ok": true
   }
  ]
