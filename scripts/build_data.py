@@ -149,7 +149,8 @@ def parse_table_rows(table):
     for r in table[hdr_i + 1:]:
         cell = lambda f: (r[cols[f]] if f in cols and cols[f] < len(r) else None)
         name = str(cell("name") or "").strip()
-        tk = str(cell("ticker") or "").strip().upper()
+        tv = cell("ticker")
+        tk = (str(int(tv)) if isinstance(tv, float) and tv.is_integer() else str(tv or "")).strip().upper()
         if not name and not tk:
             continue
         out.append(row(tk or name.upper(), name or tk, num(cell("shares")), num(cell("weight")), num(cell("value")), str(cell("type") or "")))
@@ -269,7 +270,7 @@ def clean(rows, e):
 
 # ================================================================== history + diff
 def snap_hash(rows):
-    return hashlib.sha1(json.dumps([[r["key"], r["shares"]] for r in rows], sort_keys=True).encode()).hexdigest()[:12]
+    return hashlib.sha1(json.dumps([[r["key"], r["shares"], round(r["weight"] or 0, 3)] for r in rows], sort_keys=True).encode()).hexdigest()[:12]
 
 
 def shares_ok(rows):
@@ -330,7 +331,7 @@ def diff(prev, now):
     return out, flow
 
 
-def update_history(t, rows, asof):
+def update_history(t, rows, asof, src=""):
     HIST.mkdir(parents=True, exist_ok=True)
     p = HIST / f"{t}.json"
     hist = json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
@@ -339,9 +340,9 @@ def update_history(t, rows, asof):
     changed = not hist or (hist[-1]["hash"] != h and date >= hist[-1]["asof"])
     if changed:
         if hist and hist[-1]["asof"] == date:
-            hist[-1] = {"asof": date, "hash": h, "rows": rows}      # same day re-published: replace
+            hist[-1] = {"asof": date, "hash": h, "rows": rows, "src": src}      # same day re-published: replace
         else:
-            hist.append({"asof": date, "hash": h, "rows": rows})
+            hist.append({"asof": date, "hash": h, "rows": rows, "src": src})
         hist = hist[-KEEP_SNAPS:]
         p.write_text(json.dumps(hist, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     return hist
@@ -395,9 +396,11 @@ def main():
             diag(t, f"few holdings parsed ({len(rows)}) from {src}")
         if len(rows) > CFG.get("max_holdings", 300):
             diag(t, f"{len(rows)} holdings (> {CFG.get('max_holdings', 300)}): consider removing from the list")
-        hist = update_history(t, rows, asof) if rows else (json.loads((HIST / f"{t}.json").read_text()) if (HIST / f"{t}.json").exists() else [])
+        hist = update_history(t, rows, asof, src) if rows else (json.loads((HIST / f"{t}.json").read_text()) if (HIST / f"{t}.json").exists() else [])
         trades = []
         for a, b in zip(hist, hist[1:]):
+            if a.get("src", "") != b.get("src", ""):
+                continue                               # different sources use different symbols/units
             d, flow = diff(a["rows"], b["rows"])
             if d:
                 trades.append({"date": b["asof"], "prev": a["asof"], "flow": flow, "items": d})

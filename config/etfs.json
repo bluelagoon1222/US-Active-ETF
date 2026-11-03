@@ -72,12 +72,6 @@
    "name": "Fidelity Fundamental Large Cap Growth ETF"
   },
   {
-   "ticker": "FGRO",
-   "group": "growth",
-   "issuer": "fidelity",
-   "name": "Fidelity Growth Opportunities ETF"
-  },
-  {
    "ticker": "TCHP",
    "group": "growth",
    "issuer": "troweprice",
@@ -108,6 +102,12 @@
    "issuer": "ark",
    "name": "ARK Blockchain & Fintech Innovation ETF",
    "csv": "ARK_BLOCKCHAIN_&_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv"
+  },
+  {
+   "ticker": "FFLC",
+   "group": "value",
+   "issuer": "fidelity",
+   "name": "Fidelity Fundamental Large Cap Core ETF"
   },
   {
    "ticker": "CGDV",
@@ -158,10 +158,10 @@
    "name": "T. Rowe Price Value ETF"
   },
   {
-   "ticker": "TSPA",
+   "ticker": "TCAF",
    "group": "value",
    "issuer": "troweprice",
-   "name": "T. Rowe Price U.S. Equity Research ETF"
+   "name": "T. Rowe Price Capital Appreciation Equity ETF"
   },
   {
    "ticker": "JEPI",
