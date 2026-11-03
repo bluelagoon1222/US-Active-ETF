@@ -1,0 +1,16 @@
+{
+  "note": "Edit the list. group: ai | growth | value | income. issuer decides the downloader.",
+  "etfs": [
+    {"ticker": "BAI",  "group": "ai",     "issuer": "ishares",  "name": "iShares A.I. Innovation and Tech Active ETF"},
+    {"ticker": "CHAT", "group": "ai",     "issuer": "roundhill","name": "Roundhill Generative AI & Technology ETF"},
+    {"ticker": "ARKK", "group": "ai",     "issuer": "ark",      "name": "ARK Innovation ETF", "csv": "ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv"},
+    {"ticker": "ARKW", "group": "ai",     "issuer": "ark",      "name": "ARK Next Generation Internet ETF", "csv": "ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv"},
+    {"ticker": "ARKQ", "group": "ai",     "issuer": "ark",      "name": "ARK Autonomous Technology & Robotics ETF", "csv": "ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv"},
+    {"ticker": "CGGR", "group": "growth", "issuer": "capgroup", "name": "Capital Group Growth ETF"},
+    {"ticker": "FBCG", "group": "growth", "issuer": "fidelity", "name": "Fidelity Blue Chip Growth ETF"},
+    {"ticker": "TCHP", "group": "growth", "issuer": "troweprice","name": "T. Rowe Price Blue Chip Growth ETF"},
+    {"ticker": "CGDV", "group": "value",  "issuer": "capgroup", "name": "Capital Group Dividend Value ETF"},
+    {"ticker": "DYNF", "group": "value",  "issuer": "ishares",  "name": "iShares U.S. Equity Factor Rotation Active ETF"},
+    {"ticker": "JEPI", "group": "income", "issuer": "jpm",      "name": "JPMorgan Equity Premium Income ETF", "cusip": "46641Q332"}
+  ]
+}
