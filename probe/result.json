@@ -1,12 +1,12 @@
 {
- "run_at_utc": "2026-11-03T06:17:17",
+ "run_at_utc": "2026-11-03T06:50:28",
  "round": 2,
  "checks": [
   {
    "url": "https://www.ishares.com/us/products/339081/ishares-a-i-innovation-and-tech-active-etf/1467271812596.ajax?fileType=csv&fileName=BAI_holdings&dataType=fund&siteEntryPassthrough=true",
    "status": 200,
    "ctype": "text/csv;charset=UTF-8",
-   "bytes": 1431334,
+   "bytes": 1431194,
    "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c",
    "name": "ishares_BAI",
    "ok": false
@@ -15,7 +15,7 @@
    "url": "https://www.ishares.com/us/products/307283/ishares-u-s-equity-factor-rotation-active-etf/1467271812596.ajax?fileType=csv&fileName=DYNF_holdings&dataType=fund&siteEntryPassthrough=true",
    "status": 200,
    "ctype": "text/csv;charset=UTF-8",
-   "bytes": 1486350,
+   "bytes": 1486210,
    "sample": "<!DOCTYPE html>\n<html xmlns=\"http://www.w3.org/1999/xhtml\" prefix=\"og: http://ogp.me/ns#\" lang=\"en-US\" xml:lang=\"en-US\">\n<head>\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-db24cb52045c84bd615e0e7852e6eee4.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-76e7e346179e654e66dfd92e5d6f0171.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-7c6aa69a64b07c4ed764a95e0d95fa71.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-99931c49eb56ac885ba739802396f395.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-c0b4f7f31b672bcc58ff8bbb6a33764.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-e230e5b6f6cce2c782ae2fe3a51c0328.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fe7eefd8676f1dc6b1f37c1b772a20d8.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-bcc17d66ca66b2742f8c240497925528.css\" as=\"style\" />\n<link rel=\"preload\" href=\"/blk-one02-c-assets/include/bundles/minified-fc65eef68d26b9f38c",
    "name": "ishares_DYNF",
    "ok": false
