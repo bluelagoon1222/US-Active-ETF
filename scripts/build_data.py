@@ -190,9 +190,26 @@ def parse_zacks(html):
 
 
 # ================================================================== fetchers
+def fetch_zacks(t):
+    r = get(f"https://www.zacks.com/funds/etf/{t}/holding")
+    return (*parse_zacks(r.text), "zacks") if r else ([], "", "zacks")
+
+
 def fetch_holdings(e):
+    """Issuer file first; Zacks when the issuer file is missing, too small, or stale (> 6 days)."""
+    rows, asof, src = fetch_issuer(e)
+    stale = bool(asof) and (TODAY - dt.date.fromisoformat(asof)).days > 6
+    if src != "zacks" and (len(rows) < 5 or stale):
+        zr, za, zs = fetch_zacks(e["ticker"])
+        if len(zr) >= 5:
+            diag(e["ticker"], f"issuer file {'stale ' + asof if stale else 'unavailable'} -> Zacks used")
+            return zr, za, zs
+    return rows, asof, src
+
+
+def fetch_issuer(e):
     t = e["ticker"]
-    src = e["issuer"] if e["issuer"] in ("ark", "jpm", "capgroup") else "zacks"
+    src = e["issuer"] if (e["issuer"] in ("ark", "capgroup") or (e["issuer"] == "jpm" and e.get("cusip"))) else "zacks"
     try:
         if src == "ark":
             r = get(f"https://assets.ark-funds.com/fund-documents/funds-etf-csv/{e['csv']}")
@@ -203,8 +220,7 @@ def fetch_holdings(e):
         if src == "capgroup":
             r = get(f"https://www.capitalgroup.com/api/investments/investment-service/v1/etfs/{t.lower()}/download/daily-holdings?audience=individual&redirect=true")
             return (*parse_xlsx(r.content), src) if r else ([], "", src)
-        r = get(f"https://www.zacks.com/funds/etf/{t}/holding")
-        return (*parse_zacks(r.text), src) if r else ([], "", src)
+        return fetch_zacks(t)
     except Exception as ex:
         diag(t, f"holdings error: {ex}")
         return [], "", src
@@ -377,6 +393,8 @@ def main():
         log(t, src, "rows", len(raw), "->", len(rows), "asof", asof)
         if len(rows) < 5:
             diag(t, f"few holdings parsed ({len(rows)}) from {src}")
+        if len(rows) > CFG.get("max_holdings", 300):
+            diag(t, f"{len(rows)} holdings (> {CFG.get('max_holdings', 300)}): consider removing from the list")
         hist = update_history(t, rows, asof) if rows else (json.loads((HIST / f"{t}.json").read_text()) if (HIST / f"{t}.json").exists() else [])
         trades = []
         for a, b in zip(hist, hist[1:]):

@@ -39,6 +39,11 @@ header p{margin:6px 0 0;color:#C9D6EA;font-size:17.5px}
 .note{font-size:13.5px;color:var(--sub);margin:6px 0}
 .empty{padding:28px;text-align:center;color:var(--sub);border:1px dashed var(--line);border-radius:10px}
 .tbl-wrap{overflow-x:auto;border-top:2px solid var(--navy);margin-top:6px}
+.tbl-wrap.stick{max-height:72vh;overflow:auto}
+.tbl-wrap.stick thead th{position:sticky;top:0;z-index:3;box-shadow:0 1px 0 var(--line)}
+.tbl-wrap.stick td.fc,.tbl-wrap.stick th.fc{position:sticky;left:0;z-index:2;background:#fff}
+.tbl-wrap.stick thead th.fc{z-index:4;background:var(--band)}
+.tbl-wrap.stick tr.on td.fc{background:#FFF6EF}
 table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
 th,td{padding:9px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;font-size:15px;vertical-align:top}
 th{background:var(--band);color:var(--sub);font-size:13.5px}
@@ -51,7 +56,7 @@ tr.on td{background:#FFF6EF}
 .sm{display:block;font-size:12.5px;color:var(--sub);font-weight:400}
 .pos{color:var(--red);font-weight:700}.neg{color:var(--navy);font-weight:700}
 .grp{display:inline-block;font-size:12px;font-weight:800;border-radius:5px;padding:2px 7px}
-.g-ai{background:#FBE6E6;color:#9B2C2C}.g-growth{background:var(--orange-soft);color:var(--orange-ink)}.g-value{background:#E6F2EC;color:var(--green)}.g-income{background:var(--navy-soft);color:var(--navy)}
+.g-ai{background:#FBE6E6;color:#9B2C2C}.g-growth{background:var(--orange-soft);color:var(--orange-ink)}.g-value{background:#E6F2EC;color:var(--green)}.g-income{background:var(--navy-soft);color:var(--navy)}.g-global{background:#EFE7FA;color:#5B3A9A}
 .bdg{display:inline-block;font-size:12px;font-weight:800;border-radius:4px;padding:1px 7px}
 .b-new{background:#FFE8D6;color:#C2410C}.b-buy{background:#FEF3C7;color:#92400E}.b-sell{background:var(--navy-soft);color:var(--navy)}.b-exit{background:#E5E7EB;color:#374151}
 /* trades */
@@ -91,17 +96,17 @@ footer{margin-top:40px;padding:20px 0 34px;background:var(--band);font-size:13px
 <body>
 <header><div class="wrap">
   <h1>US ACTIVE ETF <span class="en">(미국 대표 액티브 ETF 매매 추적)</span></h1>
-  <p>블랙록·JP모건·캐피털그룹·피델리티·T. 로우 프라이스·ARK 등 신뢰받는 운용사의 액티브 ETF — 매니저가 오늘 사고판 종목</p>
+  <p>블랙록·JP모건·캐피털그룹·피델리티·T. 로우 프라이스·ARK·알저 등 신뢰받는 운용사의 주식형 액티브 ETF 30개 — 매니저가 사고판 종목</p>
   <div class="meta"><span>데이터 갱신 <b id="gen">—</b></span><span>출처 <b>각 운용사 일일 보유 파일</b> · <b>Zacks</b> · 시세 <b>Yahoo Finance</b></span></div>
 </div></header>
 <main class="wrap" id="app"><div class="empty" style="margin-top:30px">데이터를 불러오는 중입니다.</div></main>
 <footer><div class="wrap">투자 참고용이며 투자 권유가 아닙니다. 매수·매도는 하루 사이 보유 주식 수 변화로 추정한 것으로, ETF 전체 설정·환매에 따른 일괄 변화는 제외했습니다. 수익률은 분배금을 제외한 가격 기준입니다.</div></footer>
 <script>
-const GRP = {ai:"AI·기술", growth:"성장주", value:"배당·가치·팩터", income:"인컴"};
-const ISS = {ishares:"블랙록 (iShares)", roundhill:"라운드힐", ark:"ARK", capgroup:"캐피털그룹", fidelity:"피델리티", troweprice:"T. 로우 프라이스", jpm:"JP모건"};
+const GRP = {ai:"AI·기술", growth:"성장주", value:"가치·코어·팩터", income:"인컴", global:"글로벌"};
+const ISS = {ishares:"블랙록 (iShares)", roundhill:"라운드힐", alger:"알저", ark:"ARK", capgroup:"캐피털그룹", fidelity:"피델리티", troweprice:"T. 로우 프라이스", jpm:"JP모건"};
 const SRC = {ark:"운용사 일일 CSV", jpm:"운용사 일일 엑셀", capgroup:"운용사 일일 엑셀", zacks:"Zacks 보유 목록"};
 const KIND = {new:["신규 편입","b-new"], exit:["전량 매도","b-exit"], buy:["매수","b-buy"], sell:["매도","b-sell"]};
-let D, E = {}, st = {tab:"trades", days:7, sort:"aum", open:null, sub:"hold", q:"", grp:"all"};
+let D, E = {}, st = {tab:"rank", days:7, sort:"aum", open:null, sub:"hold", q:"", grp:"all", jump:false};
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const usd = v => v == null ? "—" : v >= 1e9 ? "$" + (v/1e9).toFixed(2) + "B" : v >= 1e6 ? "$" + (v/1e6).toFixed(1) + "M" : "$" + Math.round(v).toLocaleString();
@@ -120,7 +125,7 @@ function render(){
   $("#gen").textContent = new Date(D.generated_at).toLocaleString("ko-KR",{timeZone:"Asia/Seoul",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}) + " (KST)";
   $("#app").innerHTML = `
     <div class="lag" role="note"><span class="ic">!</span><div><b>보유 내역은 전 거래일 장 마감 기준</b>으로 운용사가 다음 날 공개합니다. 매수·매도는 두 시점의 보유 주식 수를 비교해 추정하며, ETF 자금 유출입으로 모든 종목이 함께 늘거나 준 부분은 제외합니다 (변화 ${Math.round(D.trade_min*100)}% 이상만 표시).</div></div>
-    <div class="tabs" role="tablist">${[["trades","① 오늘의 매매"],["rank","② ETF 순위·포트폴리오"],["ai","③ AI ETF 비교"],["search","④ 종목 검색"]].map(([k,t]) => `<button class="tab" role="tab" aria-selected="${st.tab===k}" data-t="${k}">${t}</button>`).join("")}</div>
+    <div class="tabs" role="tablist">${[["rank","① ETF 순위·포트폴리오"],["trades","② 오늘의 매매"],["ai","③ AI ETF 비교"],["search","④ 종목 검색"]].map(([k,t]) => `<button class="tab" role="tab" aria-selected="${st.tab===k}" data-t="${k}">${t}</button>`).join("")}</div>
     <div id="pane"></div>`;
   document.querySelectorAll(".tab").forEach(b => b.onclick = () => { st.tab = b.dataset.t; render(); });
   ({trades:renderTrades, rank:renderRank, ai:renderAI, search:renderSearch})[st.tab]();
@@ -156,7 +161,7 @@ function renderTrades(){
     }).join("")).join("") || `<div class="empty">해당 기간에 감지된 매매가 없습니다.${D.etfs.some(e => e.snapshots < 2) ? "<br>보유 내역은 사이트 가동 후 두 번째 수집부터 비교됩니다." : ""}</div>`);
   bindGrp(renderTrades);
   document.querySelectorAll("[data-d]").forEach(b => b.onclick = () => { st.days = +b.dataset.d; renderTrades(); });
-  document.querySelectorAll("[data-open]").forEach(a => a.onclick = () => { st.tab = "rank"; st.open = a.dataset.open; st.sub = "hold"; render(); });
+  document.querySelectorAll("[data-open]").forEach(a => a.onclick = () => { st.tab = "rank"; st.open = a.dataset.open; st.sub = "hold"; st.jump = true; render(); });
 }
 
 /* ---------- ② ranking + detail ---------- */
@@ -164,14 +169,17 @@ function renderRank(){
   const key = {aum:e => e.mkt.aum, r1m:e => e.mkt.r1m, r3m:e => e.mkt.r3m, ytd:e => e.mkt.ytd, r1y:e => e.mkt.r1y, adv:e => e.mkt.adv_usd}[st.sort];
   const list = D.etfs.filter(inGrp).slice().sort((a,b) => (key(b) ?? -1e18) - (key(a) ?? -1e18));
   $("#pane").innerHTML = grpBar() + `<div class="bar"><span class="lbl">정렬</span>${[["aum","순자산"],["r1m","1개월"],["r3m","3개월"],["ytd","연초 이후"],["r1y","1년"],["adv","거래대금"]].map(([k,t]) => `<button class="chip o" aria-pressed="${st.sort===k}" data-s="${k}">${t}</button>`).join("")}<span class="note">수익률 = 가격 기준 (분배금 제외) · 행을 누르면 포트폴리오</span></div>
-    <div class="tbl-wrap"><table><thead><tr><th class="l">#</th><th class="l">ETF</th><th class="l">그룹</th><th>순자산</th><th>1개월</th><th>3개월</th><th>연초 이후</th><th>1년</th><th>일평균 거래대금</th><th>종목 수</th><th class="l">최근 매매</th></tr></thead><tbody>` +
-    list.map((e,i) => { const lt = lastTrade(e); return `<tr class="click${st.open === e.ticker ? " on" : ""}" data-e="${e.ticker}"><td class="l">${i+1}</td><td class="l nm"><span class="tk">${e.ticker}</span> ${esc(e.name)}<span class="sm">${ISS[e.issuer] || e.issuer}</span></td><td class="l">${gb(e.group)}</td>
+    <div class="tbl-wrap stick"><table><thead><tr><th class="l">#</th><th class="l fc">ETF</th><th class="l">그룹</th><th>순자산</th><th>1개월</th><th>3개월</th><th>연초 이후</th><th>1년</th><th>일평균 거래대금</th><th>종목 수</th><th class="l">최근 매매</th></tr></thead><tbody>` +
+    list.map((e,i) => { const lt = lastTrade(e); return `<tr class="click${st.open === e.ticker ? " on" : ""}" data-e="${e.ticker}"><td class="l">${i+1}</td><td class="l nm fc"><span class="tk">${e.ticker}</span> ${esc(e.name)}<span class="sm">${ISS[e.issuer] || e.issuer}</span></td><td class="l">${gb(e.group)}</td>
       <td>${usd(e.mkt.aum)}</td><td>${pc(e.mkt.r1m)}</td><td>${pc(e.mkt.r3m)}</td><td>${pc(e.mkt.ytd)}</td><td>${pc(e.mkt.r1y)}</td><td>${usd(e.mkt.adv_usd)}</td><td>${e.n}</td>
       <td class="l">${lt ? `${lt.date}<span class="sm">${lt.items.length}건</span>` : '<span class="note">—</span>'}${e.stale ? '<span class="sm" style="color:#C2410C">보유 기준일 ' + e.asof + ' (갱신 지연)</span>' : ""}</td></tr>`; }).join("") + `</tbody></table></div><div id="detail"></div>`;
   bindGrp(renderRank);
   document.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { st.sort = b.dataset.s; renderRank(); });
-  document.querySelectorAll("tr[data-e]").forEach(r => r.onclick = () => { st.open = st.open === r.dataset.e ? null : r.dataset.e; st.sub = "hold"; renderRank(); });
-  if (st.open && E[st.open]){ renderDetail(E[st.open]); $("#detail").scrollIntoView({behavior:"smooth", block:"start"}); }
+  document.querySelectorAll("tr[data-e]").forEach(r => r.onclick = () => { st.open = st.open === r.dataset.e ? null : r.dataset.e; st.sub = "hold"; st.jump = !!st.open; renderRank(); });
+  if (st.open && E[st.open]){
+    renderDetail(E[st.open]);
+    if (st.jump){ $("#detail").scrollIntoView({behavior:"smooth", block:"start"}); st.jump = false; }   // only right after a click
+  }
 }
 function renderDetail(e){
   const maxw = Math.max(...e.holdings.map(h => h.weight || 0), 1);
@@ -180,7 +188,7 @@ function renderDetail(e){
     ${e.ticker === "JEPI" ? '<p class="note">※ JEPI의 옵션 연계 상품(ELN)·현금은 매니저의 종목 선택이 아니므로 제외하고, 주식 부분만 표시합니다.</p>' : ""}
     <div class="sub-tabs">${[["hold","보유 포트폴리오"],["trade","최근 매매 이력"]].map(([k,t]) => `<button class="chip o" aria-pressed="${st.sub===k}" data-sub="${k}">${t}</button>`).join("")}</div>`;
   if (st.sub === "hold"){
-    h += `<div class="tbl-wrap"><table><thead><tr><th class="l">#</th><th class="l">티커</th><th class="l">종목</th><th>비중</th><th>주식 수</th>${e.holdings.some(x => x.value) ? "<th>평가액</th>" : ""}</tr></thead><tbody>` +
+    h += `<div class="tbl-wrap stick"><table><thead><tr><th class="l">#</th><th class="l">티커</th><th class="l">종목</th><th>비중</th><th>주식 수</th>${e.holdings.some(x => x.value) ? "<th>평가액</th>" : ""}</tr></thead><tbody>` +
       e.holdings.map((x,i) => `<tr><td class="l">${i+1}</td><td class="l"><b>${esc(x.key.length > 8 ? "—" : x.key)}</b></td><td class="l nm">${esc(x.name)}</td><td>${w(x.weight)}<span class="wbar" style="width:${Math.round((x.weight||0)/maxw*60)}px"></span></td><td>${n0(x.shares)}</td>${e.holdings.some(y => y.value) ? `<td>${usd(x.value)}</td>` : ""}</tr>`).join("") + `</tbody></table></div>`;
   } else {
     h += e.trades.length ? e.trades.map(t => `<div class="day">${t.date} <span class="note">(직전 ${t.prev} 대비 · 보정 ×${t.flow.toFixed(3)})</span></div>
@@ -202,10 +210,10 @@ function renderAI(){
   const common = all.filter(x => x.cnt >= 2).sort((a,b) => b.cnt - a.cnt || b.sum - a.sum);
   const color = v => `background:rgba(243,115,33,${Math.min(v/60, .85).toFixed(2)});${v > 35 ? "color:#fff" : ""}`;
   $("#pane").innerHTML = `<p class="note" style="margin-top:14px">AI·기술 액티브 ETF ${ai.length}개의 보유 종목 비교입니다. <b>겹침 비율</b> = 두 ETF가 공통으로 가진 종목의 비중 중 작은 값의 합 (100%면 같은 포트폴리오).</p>
-    <h3>① ETF 간 겹침 비율</h3><div class="tbl-wrap"><table class="heat"><thead><tr><th class="l"></th>${ai.map(e => `<th>${e.ticker}</th>`).join("")}</tr></thead><tbody>` +
-    ai.map(a => `<tr><td class="l"><b>${a.ticker}</b><span class="sm">${esc(a.name)}</span></td>${ai.map(b => a === b ? '<td class="c">—</td>' : `<td class="c" style="${color(ov(a.ticker,b.ticker))}">${ov(a.ticker,b.ticker).toFixed(1)}%</td>`).join("")}</tr>`).join("") + `</tbody></table></div>
-    <h3>② 공통 보유 종목 (2개 이상 ETF 보유)</h3><div class="tbl-wrap"><table><thead><tr><th class="l">티커</th><th class="l">종목</th><th>보유 ETF 수</th>${ai.map(e => `<th>${e.ticker}</th>`).join("")}</tr></thead><tbody>` +
-    common.slice(0, 60).map(x => `<tr><td class="l"><b>${esc(x.k.length > 8 ? "—" : x.k)}</b></td><td class="l nm">${esc(names[x.k])}</td><td><b>${x.cnt}</b></td>${ai.map(e => `<td>${x.k in W[e.ticker] ? w(W[e.ticker][x.k]) : '<span class="note">·</span>'}</td>`).join("")}</tr>`).join("") + `</tbody></table></div>
+    <h3>① ETF 간 겹침 비율</h3><div class="tbl-wrap stick"><table class="heat"><thead><tr><th class="l fc"></th>${ai.map(e => `<th>${e.ticker}</th>`).join("")}</tr></thead><tbody>` +
+    ai.map(a => `<tr><td class="l fc"><b>${a.ticker}</b><span class="sm">${esc(a.name)}</span></td>${ai.map(b => a === b ? '<td class="c">—</td>' : `<td class="c" style="${color(ov(a.ticker,b.ticker))}">${ov(a.ticker,b.ticker).toFixed(1)}%</td>`).join("")}</tr>`).join("") + `</tbody></table></div>
+    <h3>② 공통 보유 종목 (2개 이상 ETF 보유)</h3><p class="note">표 안에서 스크롤하면 ETF 이름 줄과 종목 열이 고정됩니다.</p><div class="tbl-wrap stick"><table><thead><tr><th class="l fc">티커</th><th class="l">종목</th><th>보유 ETF 수</th>${ai.map(e => `<th>${e.ticker}</th>`).join("")}</tr></thead><tbody>` +
+    common.slice(0, 80).map(x => `<tr><td class="l fc"><b>${esc(x.k.length > 8 ? x.names || "—" : x.k)}</b></td><td class="l nm">${esc(names[x.k])}</td><td><b>${x.cnt}</b></td>${ai.map(e => `<td>${x.k in W[e.ticker] ? w(W[e.ticker][x.k]) : '<span class="note">·</span>'}</td>`).join("")}</tr>`).join("") + `</tbody></table></div>
     <h3>③ ETF별 단독 보유 상위 종목</h3><div class="agg">` +
     ai.map(e => `<div class="box"><h4>${e.ticker} <span class="note">${esc(e.name)}</span></h4>${e.holdings.filter(h => all.find(x => x.k === h.key).cnt === 1).slice(0, 10).map(h => `<span class="it"><b>${esc(h.key.length > 8 ? h.name : h.key)}</b> <small>${w(h.weight)}</small></span>`).join("") || '<span class="note">없음</span>'}</div>`).join("") + `</div>`;
 }

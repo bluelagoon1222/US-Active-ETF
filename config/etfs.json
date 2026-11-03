@@ -1,16 +1,192 @@
 {
-  "note": "Edit the list. group: ai | growth | value | income. issuer decides the downloader.",
-  "etfs": [
-    {"ticker": "BAI",  "group": "ai",     "issuer": "ishares",  "name": "iShares A.I. Innovation and Tech Active ETF"},
-    {"ticker": "CHAT", "group": "ai",     "issuer": "roundhill","name": "Roundhill Generative AI & Technology ETF"},
-    {"ticker": "ARKK", "group": "ai",     "issuer": "ark",      "name": "ARK Innovation ETF", "csv": "ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv"},
-    {"ticker": "ARKW", "group": "ai",     "issuer": "ark",      "name": "ARK Next Generation Internet ETF", "csv": "ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv"},
-    {"ticker": "ARKQ", "group": "ai",     "issuer": "ark",      "name": "ARK Autonomous Technology & Robotics ETF", "csv": "ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv"},
-    {"ticker": "CGGR", "group": "growth", "issuer": "capgroup", "name": "Capital Group Growth ETF"},
-    {"ticker": "FBCG", "group": "growth", "issuer": "fidelity", "name": "Fidelity Blue Chip Growth ETF"},
-    {"ticker": "TCHP", "group": "growth", "issuer": "troweprice","name": "T. Rowe Price Blue Chip Growth ETF"},
-    {"ticker": "CGDV", "group": "value",  "issuer": "capgroup", "name": "Capital Group Dividend Value ETF"},
-    {"ticker": "DYNF", "group": "value",  "issuer": "ishares",  "name": "iShares U.S. Equity Factor Rotation Active ETF"},
-    {"ticker": "JEPI", "group": "income", "issuer": "jpm",      "name": "JPMorgan Equity Premium Income ETF", "cusip": "46641Q332"}
-  ]
+ "note": "Edit the list. group: ai | growth | value | income | global. Issuer files are used when known (ark, jpm with cusip, capgroup); everything else and any failure falls back to Zacks.",
+ "max_holdings": 300,
+ "etfs": [
+  {
+   "ticker": "BAI",
+   "group": "ai",
+   "issuer": "ishares",
+   "name": "iShares A.I. Innovation and Tech Active ETF"
+  },
+  {
+   "ticker": "TEK",
+   "group": "ai",
+   "issuer": "ishares",
+   "name": "iShares Technology Opportunities Active ETF"
+  },
+  {
+   "ticker": "CHAT",
+   "group": "ai",
+   "issuer": "roundhill",
+   "name": "Roundhill Generative AI & Technology ETF"
+  },
+  {
+   "ticker": "ALAI",
+   "group": "ai",
+   "issuer": "alger",
+   "name": "Alger AI Enablers & Adopters ETF"
+  },
+  {
+   "ticker": "ARKK",
+   "group": "ai",
+   "issuer": "ark",
+   "name": "ARK Innovation ETF",
+   "csv": "ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv"
+  },
+  {
+   "ticker": "ARKW",
+   "group": "ai",
+   "issuer": "ark",
+   "name": "ARK Next Generation Internet ETF",
+   "csv": "ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv"
+  },
+  {
+   "ticker": "ARKQ",
+   "group": "ai",
+   "issuer": "ark",
+   "name": "ARK Autonomous Technology & Robotics ETF",
+   "csv": "ARK_AUTONOMOUS_TECH._&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv"
+  },
+  {
+   "ticker": "CGGR",
+   "group": "growth",
+   "issuer": "capgroup",
+   "name": "Capital Group Growth ETF"
+  },
+  {
+   "ticker": "FBCG",
+   "group": "growth",
+   "issuer": "fidelity",
+   "name": "Fidelity Blue Chip Growth ETF"
+  },
+  {
+   "ticker": "FMAG",
+   "group": "growth",
+   "issuer": "fidelity",
+   "name": "Fidelity Magellan ETF"
+  },
+  {
+   "ticker": "FFLG",
+   "group": "growth",
+   "issuer": "fidelity",
+   "name": "Fidelity Fundamental Large Cap Growth ETF"
+  },
+  {
+   "ticker": "FGRO",
+   "group": "growth",
+   "issuer": "fidelity",
+   "name": "Fidelity Growth Opportunities ETF"
+  },
+  {
+   "ticker": "TCHP",
+   "group": "growth",
+   "issuer": "troweprice",
+   "name": "T. Rowe Price Blue Chip Growth ETF"
+  },
+  {
+   "ticker": "TGRW",
+   "group": "growth",
+   "issuer": "troweprice",
+   "name": "T. Rowe Price Growth Stock ETF"
+  },
+  {
+   "ticker": "JGRO",
+   "group": "growth",
+   "issuer": "jpm",
+   "name": "JPMorgan Active Growth ETF"
+  },
+  {
+   "ticker": "ARKG",
+   "group": "growth",
+   "issuer": "ark",
+   "name": "ARK Genomic Revolution ETF",
+   "csv": "ARK_GENOMIC_REVOLUTION_ETF_ARKG_HOLDINGS.csv"
+  },
+  {
+   "ticker": "ARKF",
+   "group": "growth",
+   "issuer": "ark",
+   "name": "ARK Blockchain & Fintech Innovation ETF",
+   "csv": "ARK_BLOCKCHAIN_&_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv"
+  },
+  {
+   "ticker": "CGDV",
+   "group": "value",
+   "issuer": "capgroup",
+   "name": "Capital Group Dividend Value ETF"
+  },
+  {
+   "ticker": "CGUS",
+   "group": "value",
+   "issuer": "capgroup",
+   "name": "Capital Group Core Equity ETF"
+  },
+  {
+   "ticker": "CGCV",
+   "group": "value",
+   "issuer": "capgroup",
+   "name": "Capital Group Conservative Equity ETF"
+  },
+  {
+   "ticker": "DYNF",
+   "group": "value",
+   "issuer": "ishares",
+   "name": "iShares U.S. Equity Factor Rotation Active ETF"
+  },
+  {
+   "ticker": "JAVA",
+   "group": "value",
+   "issuer": "jpm",
+   "name": "JPMorgan Active Value ETF"
+  },
+  {
+   "ticker": "JPEF",
+   "group": "value",
+   "issuer": "jpm",
+   "name": "JPMorgan Equity Focus ETF"
+  },
+  {
+   "ticker": "FBCV",
+   "group": "value",
+   "issuer": "fidelity",
+   "name": "Fidelity Blue Chip Value ETF"
+  },
+  {
+   "ticker": "TVAL",
+   "group": "value",
+   "issuer": "troweprice",
+   "name": "T. Rowe Price Value ETF"
+  },
+  {
+   "ticker": "TSPA",
+   "group": "value",
+   "issuer": "troweprice",
+   "name": "T. Rowe Price U.S. Equity Research ETF"
+  },
+  {
+   "ticker": "JEPI",
+   "group": "income",
+   "issuer": "jpm",
+   "name": "JPMorgan Equity Premium Income ETF",
+   "cusip": "46641Q332"
+  },
+  {
+   "ticker": "TEQI",
+   "group": "income",
+   "issuer": "troweprice",
+   "name": "T. Rowe Price Equity Income ETF"
+  },
+  {
+   "ticker": "CGGO",
+   "group": "global",
+   "issuer": "capgroup",
+   "name": "Capital Group Global Growth Equity ETF"
+  },
+  {
+   "ticker": "CGXU",
+   "group": "global",
+   "issuer": "capgroup",
+   "name": "Capital Group International Focus Equity ETF"
+  }
+ ]
 }
