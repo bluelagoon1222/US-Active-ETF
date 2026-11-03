@@ -151,7 +151,7 @@ function renderTrades(){
     (blocks.length ? `<div class="agg">${aggBox("buy","🔺 여러 ETF가 함께 산 종목 (신규·매수)")}${aggBox("sell","🔻 여러 ETF가 함께 판 종목 (매도·전량 매도)")}</div>` : "") +
     (Object.keys(days).sort().reverse().map(dd => `<div class="day">${dd} 보유 기준</div>` + days[dd].map(({e,t}) => {
       const by = k => t.items.filter(x => x.kind === k);
-      return `<div class="tblock"><h3><a data-open="${e.ticker}"><span class="tk">${e.ticker}</span> ${esc(e.name)}</a> ${gb(e.group)} <span class="note">직전 ${t.prev} 대비 · 설정·환매 보정 ×${t.flow.toFixed(3)}</span></h3>
+      return `<div class="tblock"><h3><a data-open="${e.ticker}"><span class="tk">${e.ticker}</span> ${esc(e.name)}</a> ${gb(e.group)} <span class="note">직전 ${t.prev} 대비 · ${t.items.some(x => x.basis === "weight") ? '<b style="color:#A3460B">비중 기준 추정 (주식 수 미제공 · 주가 변동 포함)</b>' : `설정·환매 보정 ×${t.flow.toFixed(3)}`}</span></h3>
         <div class="tlist">${["new","exit","buy","sell"].filter(k => by(k).length).map(k => `<span class="k"><span class="bdg ${KIND[k][1]}">${KIND[k][0]}</span> ${by(k).length}</span><div>${by(k).slice(0, 25).map(itemHTML).join("")}${by(k).length > 25 ? `<span class="note">외 ${by(k).length - 25}건</span>` : ""}</div>`).join("")}</div></div>`;
     }).join("")).join("") || `<div class="empty">해당 기간에 감지된 매매가 없습니다.${D.etfs.some(e => e.snapshots < 2) ? "<br>보유 내역은 사이트 가동 후 두 번째 수집부터 비교됩니다." : ""}</div>`);
   bindGrp(renderTrades);
@@ -167,7 +167,7 @@ function renderRank(){
     <div class="tbl-wrap"><table><thead><tr><th class="l">#</th><th class="l">ETF</th><th class="l">그룹</th><th>순자산</th><th>1개월</th><th>3개월</th><th>연초 이후</th><th>1년</th><th>일평균 거래대금</th><th>종목 수</th><th class="l">최근 매매</th></tr></thead><tbody>` +
     list.map((e,i) => { const lt = lastTrade(e); return `<tr class="click${st.open === e.ticker ? " on" : ""}" data-e="${e.ticker}"><td class="l">${i+1}</td><td class="l nm"><span class="tk">${e.ticker}</span> ${esc(e.name)}<span class="sm">${ISS[e.issuer] || e.issuer}</span></td><td class="l">${gb(e.group)}</td>
       <td>${usd(e.mkt.aum)}</td><td>${pc(e.mkt.r1m)}</td><td>${pc(e.mkt.r3m)}</td><td>${pc(e.mkt.ytd)}</td><td>${pc(e.mkt.r1y)}</td><td>${usd(e.mkt.adv_usd)}</td><td>${e.n}</td>
-      <td class="l">${lt ? `${lt.date}<span class="sm">${lt.items.length}건</span>` : '<span class="note">—</span>'}</td></tr>`; }).join("") + `</tbody></table></div><div id="detail"></div>`;
+      <td class="l">${lt ? `${lt.date}<span class="sm">${lt.items.length}건</span>` : '<span class="note">—</span>'}${e.stale ? '<span class="sm" style="color:#C2410C">보유 기준일 ' + e.asof + ' (갱신 지연)</span>' : ""}</td></tr>`; }).join("") + `</tbody></table></div><div id="detail"></div>`;
   bindGrp(renderRank);
   document.querySelectorAll("[data-s]").forEach(b => b.onclick = () => { st.sort = b.dataset.s; renderRank(); });
   document.querySelectorAll("tr[data-e]").forEach(r => r.onclick = () => { st.open = st.open === r.dataset.e ? null : r.dataset.e; st.sub = "hold"; renderRank(); });
@@ -176,7 +176,7 @@ function renderRank(){
 function renderDetail(e){
   const maxw = Math.max(...e.holdings.map(h => h.weight || 0), 1);
   let h = `<div class="detail"><h2>${e.ticker} <span class="note">${esc(e.name)}</span></h2>
-    <div class="kv"><span>운용사 <b>${ISS[e.issuer] || e.issuer}</b></span><span>보유 기준일 <b>${e.asof || "—"}</b>${e.asof_from_file ? "" : " (수집일)"}</span><span>종목 수 <b>${e.n}</b></span><span>순자산 <b>${usd(e.mkt.aum)}</b></span><span>출처 <b>${SRC[e.source] || e.source}</b></span></div>
+    <div class="kv"><span>운용사 <b>${ISS[e.issuer] || e.issuer}</b></span><span>보유 기준일 <b>${e.asof || "—"}</b>${e.asof_from_file ? "" : " (수집일)"}${e.stale ? ' <b style="color:#C2410C">· 출처 갱신 지연</b>' : ""}</span><span>매매 판정 <b>${e.basis === "weight" ? "비중 변화 기준 (추정)" : "주식 수 변화 기준"}</b></span><span>종목 수 <b>${e.n}</b></span><span>순자산 <b>${usd(e.mkt.aum)}</b></span><span>출처 <b>${SRC[e.source] || e.source}</b></span></div>
     ${e.ticker === "JEPI" ? '<p class="note">※ JEPI의 옵션 연계 상품(ELN)·현금은 매니저의 종목 선택이 아니므로 제외하고, 주식 부분만 표시합니다.</p>' : ""}
     <div class="sub-tabs">${[["hold","보유 포트폴리오"],["trade","최근 매매 이력"]].map(([k,t]) => `<button class="chip o" aria-pressed="${st.sub===k}" data-sub="${k}">${t}</button>`).join("")}</div>`;
   if (st.sub === "hold"){

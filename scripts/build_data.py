@@ -211,6 +211,7 @@ def fetch_holdings(e):
 
 
 EQUITY_RX = re.compile(r"COMMON|STOCK|EQUITY(?! LINK)|ADR|REIT|SHARES|ORDINARY", re.I)
+CASHLIKE_RX = re.compile(r"CASH|TREAS|MONEY|LIQUID|\bFUND\b|\bUSD\b|BLK CSH|MMF|COLLATERAL|DERIV|FUTURE", re.I)
 DROP_RX = re.compile(r"LINKED|\bELN\b|NOTE|CASH|MONEY MARKET|FUTURE|OPTION|SWAP|FORWARD|TREASURY|T-BILL|DERIVATIVE|REPO", re.I)
 
 
@@ -222,6 +223,10 @@ def clean(rows, e):
             continue                           # ELNs (JEPI), cash, futures etc. are not stock picks
         if r["shares"] is None and r["weight"] is None:
             continue
+        if r["key"] in ("N/A", "NA", "--", "-") and CASHLIKE_RX.search(r["name"] + " " + r["key"]):
+            continue
+        if r["key"] in ("N/A", "NA", "--", "-"):
+            r["key"] = r["name"].upper()[:40]          # keep foreign/unlisted names as their own key
         out.append(r)
     # merge duplicate keys
     m = {}
@@ -234,6 +239,10 @@ def clean(rows, e):
         else:
             m[r["key"]] = dict(r)
     rows = list(m.values())
+    tw = sum(r["weight"] or 0 for r in rows)
+    if 0.3 < tw < 1.5:                                  # file gives fractions (0.06 = 6%)
+        for r in rows:
+            r["weight"] = (r["weight"] or 0) * 100 if r["weight"] is not None else None
     # weights as % of the stock sleeve when a file gives none
     if all(r["weight"] is None for r in rows):
         tot = sum(r["value"] or 0 for r in rows) or 1
@@ -247,7 +256,39 @@ def snap_hash(rows):
     return hashlib.sha1(json.dumps([[r["key"], r["shares"]] for r in rows], sort_keys=True).encode()).hexdigest()[:12]
 
 
+def shares_ok(rows):
+    sh = [r["shares"] for r in rows if r["shares"]]
+    return len(sh) >= max(3, len(rows) // 2) and statistics.median(sh) >= 1000
+
+
+def diff_weight(prev, now):
+    """Fallback when share counts are unusable: new/exit + large weight moves (price moves also count -> labelled)."""
+    P = {r["key"]: r for r in prev}
+    N = {r["key"]: r for r in now}
+    out = []
+    for k, n in N.items():
+        p = P.get(k)
+        if not p:
+            out.append({"key": k, "name": n["name"], "kind": "new", "shares": n["shares"], "prev_shares": 0, "chg": None, "weight": n["weight"], "prev_weight": 0})
+        elif (p["weight"] or 0) > 0.2 and n["weight"] is not None:
+            rel = n["weight"] / p["weight"] - 1
+            if abs(rel) >= 0.25 and abs(n["weight"] - p["weight"]) >= 0.3:
+                out.append({"key": k, "name": n["name"], "kind": "buy" if rel > 0 else "sell", "shares": n["shares"], "prev_shares": p["shares"],
+                            "chg": rel, "weight": n["weight"], "prev_weight": p["weight"]})
+    for k, p in P.items():
+        if k not in N:
+            out.append({"key": k, "name": p["name"], "kind": "exit", "shares": 0, "prev_shares": p["shares"], "chg": -1.0, "weight": 0, "prev_weight": p["weight"]})
+    order = {"new": 0, "exit": 1, "buy": 2, "sell": 3}
+    out.sort(key=lambda d: (order[d["kind"]], -max(d["weight"] or 0, d["prev_weight"] or 0)))
+    return out, 1.0
+
+
 def diff(prev, now):
+    if not (shares_ok(prev) and shares_ok(now)):
+        d, f = diff_weight(prev, now)
+        for x in d:
+            x["basis"] = "weight"
+        return d, f
     P = {r["key"]: r for r in prev}
     N = {r["key"]: r for r in now}
     common = [k for k in N if k in P and (P[k]["shares"] or 0) > 0 and (N[k]["shares"] or 0) > 0]
@@ -346,7 +387,11 @@ def main():
         latest = hist[-1] if hist else {"asof": "", "rows": []}
         m = market(t)
         m["aum"] = aum(t)
+        stale = bool(latest["asof"]) and (TODAY - dt.date.fromisoformat(latest["asof"])).days > 6
+        if stale:
+            diag(t, f"holdings date {latest['asof']} is old (source not updated)")
         out.append({**e, "source": src, "asof": latest["asof"], "asof_from_file": bool(asof), "n": len(latest["rows"]),
+                    "stale": stale, "basis": "shares" if shares_ok(latest["rows"]) else "weight",
                     "holdings": latest["rows"], "trades": trades, "snapshots": len(hist), "mkt": m})
         time.sleep(1)
     res = {"status": "ok", "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
